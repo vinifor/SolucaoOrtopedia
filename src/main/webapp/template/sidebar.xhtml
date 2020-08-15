@@ -1,0 +1,35 @@
+<ui:composition
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:pm="http://primefaces.org/serenity">
+
+    <div class="layout-sidebar layout-sidebar-dark">
+        <div class="sidebar-logo">
+            <a href="/">
+                <p:graphicImage name="images/medico-estetoscopio.svg" library="serenity-layout" />
+                <span class="app-name">DOCTO</span>
+            </a>
+            <a href="#" class="sidebar-anchor" title="Toggle Menu"></a>
+        </div>
+
+        <div class="nano">
+            <div class="nano-content sidebar-scroll-content">
+                <div class="layout-menu-container">
+                    <h:form id="menuform">
+                        <p:growl showDetail="false" life="5000">
+                            <p:autoUpdate/>
+                        </p:growl>
+                        <pm:menu>
+                            <p:menuitem id="mi_home" value="Home" icon="fa fa-home"
+                                        outcome="/pages/index.xhtml"/>
+                            <p:menuitem id="mi_usuario" value="Usuário" icon="fa fa-user"
+                                        actionListener="#{usuarioController.abrir()}"/>
+                        </pm:menu>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+    </div>
+</ui:composition>

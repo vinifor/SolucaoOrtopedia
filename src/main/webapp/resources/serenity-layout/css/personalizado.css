@@ -1,0 +1,444 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 21/10/2017, 03:00:15
+    Author     : vinicius
+*/
+
+.fixed-action-btn {
+    position: fixed;
+    bottom: 23px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 997;
+    height: 56px !important;
+    width: 56px !important;
+    font-size: 24px
+}
+
+.right{
+    right: 23px;
+}
+
+.left{
+    left: 23px;
+}
+
+.btn-large {
+    height: 56px !important;
+    width: 56px !important;
+}
+
+.Fleft{ float:left;}
+.Fright{ float:right;}
+.Fnone{ float:none !important;}
+
+.FontBold{ font-weight:bold;}
+.FontLight{ font-weight:lighter;}
+.FontNormal{ font-weight:normal;}
+
+.width10{width: 10% !important;}
+.width20{width: 20% !important;}
+.width30{width: 30% !important;}
+.width40{width: 40% !important;}
+.width50{width: 50% !important;}
+.width60{width: 60% !important;}
+.width70{width: 70% !important;}
+.width80{width: 80% !important;}
+.width90{width: 90% !important;}
+.width100{width: 100% !important;}
+
+/* Empty Boxes */
+.EmptyBox2{ display:block; width:100%; height:2px; overflow:hidden;}
+.EmptyBox5{ display:block; width:100%; height:5px; overflow:hidden;}
+.EmptyBox10{ display:block; width:100%; height:10px; overflow:hidden;}
+.EmptyBox15{ display:block; width:100%; height:15px; overflow:hidden;}
+.EmptyBox20{ display:block; width:100%; height:20px; overflow:hidden;}
+.EmptyBox30{ display:block; width:100%; height:30px; overflow:hidden;}
+.EmptyBox40{ display:block; width:100%; height:40px; overflow:hidden;}
+.EmptyBox50{ display:block; width:100%; height:50px; overflow:hidden;}
+.EmptyBox60{ display:block; width:100%; height:60px; overflow:hidden;}
+.EmptyBox70{ display:block; width:100%; height:70px; overflow:hidden;}
+.EmptyBox80{ display:block; width:100%; height:80px; overflow:hidden;}
+.EmptyBox90{ display:block; width:100%; height:90px; overflow:hidden;}
+.EmptyBox100{ display:block; width:100%; height:100px; overflow:hidden;}
+.EmptyBox110{ display:block; width:100%; height:100px; overflow:hidden;}
+.EmptyBox120{ display:block; width:100%; height:100px; overflow:hidden;}
+.EmptyBox130{ display:block; width:100%; height:100px; overflow:hidden;}
+.EmptyBox140{ display:block; width:100%; height:100px; overflow:hidden;}
+.EmptyBox150{ display: block; width: 100%; height:150px; overflow:hidden;}
+
+/* Font Sizes */
+.Fs9{font-size:9px !important;} 
+.Fs10{font-size:10px !important;} 
+.Fs11{font-size:11px !important;} 
+.Fs12{font-size:12px !important;} 
+.Fs13{font-size:13px !important;} 
+.Fs14{font-size:14px !important;} 
+.Fs15{font-size:15px !important;} 
+.Fs16{font-size:16px !important;} 
+.Fs17{font-size:17px !important;} 
+.Fs18{font-size:18px !important;} 
+.Fs19{font-size:19px !important;} 
+.Fs20{font-size:20px !important;} 
+.Fs21{font-size:21px !important;} 
+.Fs22{font-size:22px !important;} 
+.Fs23{font-size:23px !important;} 
+.Fs24{font-size:24px !important;} 
+.Fs25{font-size:25px !important;} 
+.Fs26{font-size:26px !important;} 
+.Fs27{font-size:27px !important;} 
+.Fs28{font-size:28px !important;} 
+.Fs29{font-size:29px !important;} 
+.Fs30{font-size:30px !important;}
+.Fs40{font-size:40px !important;}
+.Fs50{font-size:50px !important;}
+.Fs60{font-size:60px !important;}
+.Fs100{font-size:100px !important;}
+.Fs130{font-size:130px !important;}
+
+.TexAlCenter{ text-align:center;}
+.TexAlLeft{ text-align:left;}
+.TexAlRight{ text-align:right !important;}
+
+.indigo-pink{
+    background-color: #3f51b5 !important;
+    color: #E91E63 !important;
+}
+
+.pink-amber{
+    background-color: #E91E63 !important;
+    color: #FFC107 !important;
+}
+
+.purple-pink{
+    background-color: #8E24AA !important;
+    color: #E91E63 !important;
+}
+
+.deeppurple-orange{
+    background-color: #673AB7 !important;
+    color: #FF9800 !important;
+}
+
+.blue-amber{
+    background-color: #1E88E5 !important;
+    color: #FFB300 !important;
+}
+
+.lightblue-bluegrey{
+    background-color: #03A9F4 !important;
+    color: #607D8B !important;
+}
+
+.cyan-amber{
+    background-color: #00BCD4 !important;
+    color: #FFB300 !important;
+}
+
+.teal-red{
+    background-color: #009688 !important;
+    color: #F44336 !important;
+}
+
+.green-brown{
+    background-color: #4CAF50 !important;
+    color: #795548 !important;
+}
+
+.lightgreen-purple{
+    background-color: #8BC34A !important;
+    color: #673AB7 !important;
+}
+
+.lime-bluegrey{
+    background-color: #AFB42B !important;
+    color: #607D8B !important;
+}
+
+.yellow-teal{
+    background-color: #FBC02D !important;
+    color: #009688 !important;
+}
+
+.amber-pink{
+    background-color: #FFB300 !important;
+    color: #E91E63 !important;
+}
+
+.orange-indigo{
+    background-color: #FB8C00 !important;
+    color: #3F51B5 !important;
+}
+
+.deeporange-cyan{
+    background-color: #F4511E !important;
+    color: #00BCD4 !important;
+}
+
+.brown-cyan{
+    background-color: #795548 !important;
+    color: #00BCD4 !important;
+}
+
+.grey-indigo{
+    background-color: #757575 !important;
+    color: #3F51B5 !important;
+}
+
+.bluegray-green{
+    background-color: #607D8B !important;
+    color: #7CB342 !important;
+}
+
+.afa{
+    background-color: #D32F2F !important;
+    color: #212121 !important;
+}
+
+.uva-verde{
+    background-color: #673AB7 !important;
+    color: #8BC34A !important;
+}
+
+.frango-americano{
+    background-color: #F44336 !important;
+    color: #FFEB3B !important;
+}
+
+.ui-lightbox{
+    z-index: 999999999 !important
+}
+
+.dashboard .overview-box.blue .overview-box-header {
+    background-color: #64B5F6; }
+.dashboard .overview-box.blue .overview-box-content {
+    background-color: #2196F3; }
+.dashboard .overview-box.blue .overview-box-content .overview-box-icon {
+    background-color: #2196F3; }
+
+.dashboard .overview-box.teal .overview-box-header {
+    background-color: #4DB6AC; }
+.dashboard .overview-box.teal .overview-box-content {
+    background-color: #009688; }
+.dashboard .overview-box.teal .overview-box-content .overview-box-icon {
+    background-color: #009688; }
+
+.dashboard .overview-box.deep-orange .overview-box-header {
+    background-color: #FF8A65; }
+.dashboard .overview-box.deep-orange .overview-box-content {
+    background-color: #FF5722; }
+.dashboard .overview-box.deep-orange .overview-box-content .overview-box-icon {
+    background-color: #FF5722; }
+
+.dashboard .overview-box.purple .overview-box-header {
+    background-color: #BA68C8; }
+.dashboard .overview-box.purple .overview-box-content {
+    background-color: #9C27B0; }
+.dashboard .overview-box.purple .overview-box-content .overview-box-icon {
+    background-color: #9C27B0; }
+
+.dashboard .overview-box.red .overview-box-header {
+    background-color: #E57373; }
+.dashboard .overview-box.red .overview-box-content {
+    background-color: #F44336; }
+.dashboard .overview-box.red .overview-box-content .overview-box-icon {
+    background-color: #F44336; }
+
+.dashboard .overview-box.green .overview-box-header {
+    background-color: #81C784; }
+.dashboard .overview-box.green .overview-box-content {
+    background-color: #4CAF50; }
+.dashboard .overview-box.green .overview-box-content .overview-box-icon {
+    background-color: #4CAF50; }
+
+.dashboard .overview-box.indigo .overview-box-header {
+    background-color: #7986CB; }
+.dashboard .overview-box.indigo .overview-box-content {
+    background-color: #3F51B5; }
+.dashboard .overview-box.indigo .overview-box-content .overview-box-icon {
+    background-color: #3F51B5; }
+
+.dashboard .overview-box.blue-gray .overview-box-header {
+    background-color: #90A4AE; }
+.dashboard .overview-box.blue-gray .overview-box-content {
+    background-color: #607D8B; }
+.dashboard .overview-box.blue-gray .overview-box-content .overview-box-icon {
+    background-color: #607D8B; }
+
+.tableView table,
+.tableView div a.ui-datepicker-prev.ui-corner-all,
+.tableView div a.ui-datepicker-next.ui-corner-all {
+    display: none;
+}
+
+.tableView .ui-datepicker {
+    width: 100%;
+}
+
+.ui-datatable table{
+    table-layout: auto !important;
+}
+
+.green-dark-3{
+    background: #2e7d32;
+}
+.yellow-dark-3{
+    background: #f9a825;
+}
+.red-dark-3{
+    background: #c62828;
+}
+
+.white{ color:#ffffff;}
+
+body .white-icon .ui-autocomplete .ui-autocomplete-dropdown.ui-button.ui-button-icon-only .ui-icon{
+    color:#ffffff;
+}
+
+.jqplot-data-label {
+    color: white;
+}
+
+.jqplot-highlighter-tooltip {
+    color: white;
+    background: #212121;
+    z-index: 999;
+}
+
+.status{
+    width: 100%;
+}
+
+.noborder{
+    border: 0px solid transparent !important;
+}
+
+.svg path{
+    fill: red;
+}
+
+@media (min-width: 960px){
+    /*visibilities according to the platform*/
+    .ShowOnMobile{
+        display:none;
+        opacity:0;
+    }
+    .ShowOnDesktop{
+        display:inherit;
+        opacity:1;
+    }
+
+    .dialog{
+        width: 30% !important;
+        max-height: 80% !important;
+    }
+    .dialog.large{
+        width: 50% !important;
+    }
+
+    .status.col_2 .ui-button{
+        width: 50%;
+        padding: 0px;
+    }
+    .status.col_3 .ui-button{
+        width: 33.3333333%;
+        padding: 0px;
+    }
+    .status.col_4 .ui-button{
+        width: 25%;
+        padding: 0px;
+    }
+
+    .ui-picklist.ui-picklist-responsive .ui-picklist-list-wrapper{
+        width: 48% !important;
+    }
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 641px) and (max-width: 960px) {
+    /*visibilities according to the platform*/
+    .ShowOnMobile{
+        display:inherit;
+        opacity:1;
+    }
+    .ShowOnDesktop{
+        display:none;
+        opacity:0;
+    }
+
+    .dialog{
+        left: 15% !important;
+        width: 70% !important;
+        max-height: 80% !important;
+    }
+    .dialog.large{
+        left: 5% !important;
+        width: 90% !important;
+    }
+
+    .status.col_2 .ui-button{
+        width: 50%;
+        padding: 0px;
+    }
+    .status.col_3 .ui-button{
+        width: 33.3333333%;
+        padding: 0px;
+    }
+    .status.col_4 .ui-button{
+        width: 25%;
+        padding: 0px;
+    }
+
+    .ui-picklist.ui-picklist-responsive .ui-picklist-list-wrapper{
+        width: 48% !important;
+    }
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 640px) {
+
+    /*visibilities according to the platform*/
+    .ShowOnMobile{
+        display:inherit;
+        opacity:1;
+    }
+    .ShowOnDesktop{
+        display:none;
+        opacity:0;
+    }
+
+    .dialog{
+        width: 100% !important;
+        max-height: 80% !important;
+        overflow: scroll !important;
+    }
+
+    .ui-picklist.ui-picklist-responsive .ui-picklist-list-wrapper{
+        width: 48% !important;
+    }
+}
+
+/* Portrait phones and down */
+@media (min-width:320px) and (max-width: 480px) {
+    /*visibilities according to the platform*/
+    .ShowOnMobile{
+        display:inherit;
+        opacity:1;
+    }
+    .ShowOnDesktop{
+        display:none;
+        opacity:0;
+    }
+
+    .dialog{
+        width: 100% !important;
+        max-height: 80% !important;
+    }
+    .ui-picklist.ui-picklist-responsive .ui-picklist-list-wrapper{
+        width: 100% !important;
+    }
+}
