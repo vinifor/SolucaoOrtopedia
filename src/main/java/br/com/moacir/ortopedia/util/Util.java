@@ -3,17 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.moacir.docto.util;
+package br.com.moacir.ortopedia.util;
 
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.context.FacesContext;
 
-/**
- *
- * @author vinif
- */
 public class Util {
 
     public static void redirect(Paginas paginas) {

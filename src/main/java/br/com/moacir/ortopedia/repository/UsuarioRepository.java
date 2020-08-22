@@ -3,15 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.moacir.docto.repository;
+package br.com.moacir.ortopedia.repository;
 
-import br.com.moacir.docto.model.Usuario;
+import br.com.moacir.ortopedia.model.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-/**
- *
- * @author vinif
- */
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
 }

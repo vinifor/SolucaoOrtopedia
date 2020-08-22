@@ -1,5 +1,6 @@
-package br.com.moacir.docto.model;
+package br.com.moacir.ortopedia.model;
 
+import java.io.Serializable;
 import lombok.Data;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,24 +14,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Pessoa {
+public class Video implements Serializable{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column
-    private String nome;
+    private String titulo;
     @Column
-    private String cpf;
+    private String tipo;
     @Column
-    private String celular;
-    @Column
-    private String email;
-    @Column
-    private String endereco;
-    @Column
-    private String rg;
-    @Column
-    private String sexo;
+    private String qualificacao;
 
 }

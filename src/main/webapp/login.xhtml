@@ -11,7 +11,7 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
             <meta name="apple-mobile-web-app-capable" content="yes" />
         </f:facet>
-        <title>Login - Controle Web</title>
+        <title>Login - Soluções em Ortopedia</title>
         <h:outputScript name="js/layout.js" library="serenity-layout" />
         <h:outputScript name="js/ripple.js" library="serenity-layout" />
     </h:head>
@@ -19,13 +19,13 @@
     <h:body styleClass="login-body" style="background-image: none; background-color: #263238">
         <div class="login-panel ui-fluid">
             <div class="login-panel-header">
-                <p:graphicImage name="images/logo-cloud.svg" library="serenity-layout" />
+                <p:graphicImage name="images/medico-estetoscopio.svg" library="serenity-layout" />
             </div>
-            <form action="/j_spring_security_check" method="post">
+            <h:form prependId="false">
                 <div class="login-panel-content">
                     <div class="ui-g">
                         <div class="ui-g-12">
-                            <h1>Docto</h1>
+                            <h1>Solução em Ortopedia</h1>
                         </div>
                         <div class="ui-g-12">
                             <center>
@@ -34,25 +34,25 @@
                         </div>
                         <div class="ui-g-12">
                             <h:panelGroup styleClass="md-inputfield md-inputfield-fill">
-                                <p:inputText autocomplete="off" id="j_username"/>
+                                <p:inputText autocomplete="off" id="username"/>
                                 <label>Usuário</label>
                             </h:panelGroup>
                         </div>
                         <div class="ui-g-12">
                             <h:panelGroup styleClass="md-inputfield md-inputfield-fill">
-                                <p:password autocomplete="off" id="j_password"/>
+                                <p:password autocomplete="off" id="password"/>
                                 <label>Senha</label>
                             </h:panelGroup>
                         </div>
-                        
+
                         <div class="ui-g-12">
-                            <h:commandButton value="Entrar" class="ui-button"/>
+                            <p:commandButton value="Login" ajax="false" />
                         </div>
                     </div>
                 </div>
-            </form>
+            </h:form>
         </div>
-        
+
         <h:outputStylesheet name="css/layout-teal.css" library="serenity-layout" />
         <h:outputStylesheet name="css/personalizado.css" library="serenity-layout" />
     </h:body>

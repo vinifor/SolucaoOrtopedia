@@ -3,21 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.moacir.docto.controller;
+package br.com.moacir.ortopedia.controller;
 
-import br.com.moacir.docto.model.Usuario;
-import br.com.moacir.docto.repository.UsuarioRepository;
-import br.com.moacir.docto.util.Paginas;
-import br.com.moacir.docto.util.Util;
+import br.com.moacir.ortopedia.model.Usuario;
+import br.com.moacir.ortopedia.repository.UsuarioRepository;
+import br.com.moacir.ortopedia.util.Paginas;
+import br.com.moacir.ortopedia.util.Util;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-/**
- *
- * @author vinif
- */
 @Scope(value = "session")
 @Component(value = "usuarioController")
 public class UsuarioController {

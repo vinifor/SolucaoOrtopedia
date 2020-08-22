@@ -3,12 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.moacir.docto.util;
+package br.com.moacir.ortopedia.util;
 
-/**
- *
- * @author vinif
- */
 public enum Paginas {
     USUARIO_EDITA("/pages/usuario/edita.xhtml"),
     USUARIO_LISTA("/pages/usuario/lista.xhtml");
