@@ -18,18 +18,13 @@
                         <p:column headerText="Nome" filterBy="#{usuario.nome}">
                             <h:outputText value="#{usuario.nome}" />
                         </p:column>
-                        <p:column headerText="Ações" style="width: 15%">
-                            <div class="ui-g-12 ui-sm-4 ui-md-4 ui-lg-4">
-                                <p:commandButton icon="fa fa-key"
-                                                 id="muda_senha" class="green-btn"/>
-                                <p:tooltip for="muda_senha" value="Alterar Senha"/>
-                            </div>
-                            <div class="ui-g-12 ui-sm-4 ui-md-4 ui-lg-4">
+                        <p:column headerText="Ações" style="width: 10%">
+                            <div class="ui-g-12 ui-sm-12 ui-md-6 ui-lg-6">
                                 <p:commandButton icon="fa fa-edit" actionListener="#{usuarioController.edita(usuario)}"
                                                  id="editar"/>
                                 <p:tooltip for="editar" value="Editar"/>
                             </div>
-                            <div class="ui-g-12 ui-sm-4 ui-md-4 ui-lg-4">
+                            <div class="ui-g-12 ui-sm-12 ui-md-6 ui-lg-6">
                                 <p:commandButton icon="fa fa-remove" actionListener="#{usuarioController.deleta(usuario)}"
                                                  class="secondary-btn" id="excluir" update="lista"/>
                                 <p:tooltip for="excluir" value="Excluir"/>

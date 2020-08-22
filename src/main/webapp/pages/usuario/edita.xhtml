@@ -69,7 +69,8 @@
                         <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
                             <div class="EmptyBox10"/>
                             <div class="md-inputfield md-inputfield-fill">
-                                <p:inputText id="email" value="#{usuarioController.usuario.email}" />
+                                <p:inputText id="email" value="#{usuarioController.usuario.email}" 
+                                             required="true" requiredMessage="Digite o e-mail"/>
                                 <p:outputLabel for="email" value="E-mail" />
                             </div>
                         </div>
@@ -89,7 +90,7 @@
                                 <p:password id="senha" value="#{usuarioController.usuario.senha}" 
                                             required="true" requiredMessage="Digite a Senha"
                                             match="senha-rep" validatorMessage="Senhas não combinam"
-                                            disabled="#{usuarioEdita.usuario.id != null}"/>
+                                            disabled="#{usuarioController.usuario.id != null}"/>
                                 <p:outputLabel for="senha" value="Senha" />
                             </div>
                         </div>
@@ -99,7 +100,7 @@
                             <div class="md-inputfield md-inputfield-fill">
                                 <p:password id="senha-rep" value="#{usuarioController.usuario.senha}"
                                             required="true" requiredMessage="Repita a Senha"
-                                            disabled="#{usuarioEdita.usuario.id != null}"/>
+                                            disabled="#{usuarioController.usuario.id != null}"/>
                                 <p:outputLabel for="senha-rep" value="Repetir a senha" />
                             </div>
                         </div>
