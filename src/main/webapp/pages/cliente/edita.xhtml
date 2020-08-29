@@ -9,119 +9,111 @@
             <h:form id="form">
                 <div class="ui-fluid ui-g">
                     <p:panel header="Cliente" style="width: 100%">
-                        <div class="ui-g-12 ui-lg-8 ui-md-8 ui-sm-12">
-                            <div class="EmptyBox10"/>
-                            <div class="md-inputfield md-inputfield-fill">
-                                <p:inputText id="nome" value="#{clienteController.cliente.nome}"
-                                             required="true" requiredMessage="Digite o Nome"/>
-                                <p:outputLabel for="nome" value="Nome" />
+                        <div class="ui-g-12">
+                            <div class="ui-g-12 ui-lg-8 ui-md-8 ui-sm-12">
+                                <div class="md-inputfield md-inputfield-fill">
+                                    <p:inputText id="nome" value="#{clienteController.cliente.nome}"
+                                                 required="true" requiredMessage="Digite o Nome"/>
+                                    <p:outputLabel for="nome" value="Nome" />
+                                </div>
+                            </div>
+
+                            <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
+                                <div class="md-inputfield md-inputfield-fill">
+                                    <p:selectOneMenu id="sexo" value="#{clienteController.cliente.sexo}"
+                                                     required="true" requiredMessage="Escolha o sexo">
+                                        <f:selectItem itemLabel="" itemValue=""/>
+                                        <f:selectItem itemLabel="MASCULINO" itemValue="MASCULINO"/>
+                                        <f:selectItem itemLabel="FEMININO" itemValue="FEMININO"/>
+                                        <p:ajax update="sexo" event="itemSelect" process="@this"/>
+                                    </p:selectOneMenu>
+                                    <p:outputLabel for="sexo" value="Sexo" />
+                                </div>
                             </div>
                         </div>
 
-                        <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
-                            <div class="EmptyBox10"/>
-                            <div class="md-inputfield md-inputfield-fill">
-                                <p:selectOneMenu id="sexo" value="#{clienteController.cliente.sexo}">
-                                    <f:selectItem itemLabel="" itemValue=""/>
-                                    <f:selectItem itemLabel="MASCULINO" itemValue="MASCULINO"/>
-                                    <f:selectItem itemLabel="FEMININO" itemValue="FEMININO"/>
-                                    <p:ajax update="sexo" event="itemSelect" process="@this"/>
-                                </p:selectOneMenu>
-                                <p:outputLabel for="sexo" value="Sexo" />
+                        <div class="ui-g-12">
+                            <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
+                                <div class="md-inputfield md-inputfield-fill">
+                                    <p:inputText id="cpf" value="#{clienteController.cliente.cpf}"
+                                                 required="true" requiredMessage="Digite o CPF"/>
+                                    <p:outputLabel for="cpf" value="CPF" />
+                                </div>
+                            </div>
+
+                            <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
+                                <div class="md-inputfield md-inputfield-fill">
+                                    <p:inputText id="rg" value="#{clienteController.cliente.rg}"
+                                                 requiredMessage="Digite o RG"/>
+                                    <p:outputLabel for="rg" value="RG" />
+                                </div>
+                            </div>
+
+                            <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
+                                <div class="md-inputfield md-inputfield-fill">
+                                    <p:inputText id="crm" value="#{clienteController.cliente.crm}"
+                                                 requiredMessage="Digite o CRM"/>
+                                    <p:outputLabel for="crm" value="CRM" />
+                                </div>
                             </div>
                         </div>
 
-                        <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
-                            <div class="EmptyBox10"/>
-                            <div class="md-inputfield md-inputfield-fill">
-                                <p:inputText id="cpf" value="#{clienteController.cliente.cpf}"
-                                             required="true" requiredMessage="Digite o CPF"/>
-                                <p:outputLabel for="cpf" value="CPF" />
+                        <div class="ui-g-12">
+                            <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
+                                <div class="md-inputfield md-inputfield-fill">
+                                    <p:inputText id="celular" value="#{clienteController.cliente.celular}" />
+                                    <p:outputLabel for="celular" value="Celular" />
+                                </div>
+                            </div>
+
+                            <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
+                                <div class="md-inputfield md-inputfield-fill">
+                                    <p:inputText id="endereco" value="#{clienteController.cliente.endereco}"
+                                                 requiredMessage="Digite o Endereço"/>
+                                    <p:outputLabel for="endereco" value="Endereco" />
+                                </div>
+                            </div>
+
+                            <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
+                                <div class="md-inputfield md-inputfield-fill">
+                                    <p:inputText id="email" value="#{clienteController.cliente.email}" 
+                                                 requiredMessage="Digite o e-mail"/>
+                                    <p:outputLabel for="email" value="E-mail" />
+                                </div>
                             </div>
                         </div>
 
-                        <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
-                            <div class="EmptyBox10"/>
-                            <div class="md-inputfield md-inputfield-fill">
-                                <p:inputText id="rg" value="#{clienteController.cliente.rg}"
-                                             required="true" requiredMessage="Digite o RG"/>
-                                <p:outputLabel for="rg" value="RG" />
+                        <div class="ui-g-12">
+                            <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
+                                <div class="md-inputfield md-inputfield-fill">
+                                    <p:password id="senha" value="#{clienteController.cliente.senha}" 
+                                                required="true" requiredMessage="Digite a Senha"
+                                                match="senha-rep" validatorMessage="Senhas não combinam"
+                                                disabled="#{clienteController.cliente.id != null}"/>
+                                    <p:outputLabel for="senha" value="Senha" />
+                                </div>
                             </div>
-                        </div>
-                            
-                        <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
-                            <div class="EmptyBox10"/>
-                            <div class="md-inputfield md-inputfield-fill">
-                                <p:inputText id="crm" value="#{clienteController.cliente.crm}"
-                                             required="true" requiredMessage="Digite o CRM"/>
-                                <p:outputLabel for="crm" value="CRM" />
-                            </div>
-                        </div>
 
-                        <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
-                            <div class="EmptyBox10"/>
-                            <div class="md-inputfield md-inputfield-fill">
-                                <p:inputText id="celular" value="#{clienteController.cliente.celular}" />
-                                <p:outputLabel for="celular" value="Celular" />
-                            </div>
-                        </div>
-
-                        <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
-                            <div class="EmptyBox10"/>
-                            <div class="md-inputfield md-inputfield-fill">
-                                <p:inputText id="endereco" value="#{clienteController.cliente.endereco}"
-                                             required="true" requiredMessage="Digite o Endereço"/>
-                                <p:outputLabel for="endereco" value="Endereco" />
-                            </div>
-                        </div>
-
-                        <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
-                            <div class="EmptyBox10"/>
-                            <div class="md-inputfield md-inputfield-fill">
-                                <p:inputText id="email" value="#{clienteController.cliente.email}" 
-                                             required="true" requiredMessage="Digite o e-mail"/>
-                                <p:outputLabel for="email" value="E-mail" />
-                            </div>
-                        </div>
-
-                        <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
-                            <div class="EmptyBox10"/>
-                            <div class="md-inputfield md-inputfield-fill">
-                                <p:inputText id="mensalidade" value="#{clienteController.cliente.mensalidade}"
-                                             required="true" requiredMessage="Digite a Mensalidade"/>
-                                <p:outputLabel for="mensalidade" value="Mensalidade" />
-                            </div>
-                        </div>
-
-                        <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
-                            <div class="EmptyBox10"/>
-                            <div class="md-inputfield md-inputfield-fill">
-                                <p:password id="senha" value="#{clienteController.cliente.senha}" 
-                                            required="true" requiredMessage="Digite a Senha"
-                                            match="senha-rep" validatorMessage="Senhas não combinam"
-                                            disabled="#{clienteController.cliente.id != null}"/>
-                                <p:outputLabel for="senha" value="Senha" />
-                            </div>
-                        </div>
-
-                        <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
-                            <div class="EmptyBox10"/>
-                            <div class="md-inputfield md-inputfield-fill">
-                                <p:password id="senha-rep" value="#{clienteController.cliente.senha}"
-                                            required="true" requiredMessage="Repita a Senha"
-                                            disabled="#{clienteController.cliente.id != null}"/>
-                                <p:outputLabel for="senha-rep" value="Repetir a senha" />
+                            <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
+                                <div class="md-inputfield md-inputfield-fill">
+                                    <p:password id="senha-rep" value="#{clienteController.cliente.senha}"
+                                                required="true" requiredMessage="Repita a Senha"
+                                                disabled="#{clienteController.cliente.id != null}"/>
+                                    <p:outputLabel for="senha-rep" value="Repetir a senha" />
+                                </div>
                             </div>
                         </div>
 
 
-                        <div class="ui-g-12 ui-lg-6 ui-md-6 ui-sm-6">
-                            <p:commandButton value="Cancelar" actionListener="#{clienteController.cancela()}"
-                                             class="secondary-btn" process="@this"/>
-                        </div>
-                        <div class="ui-g-12 ui-lg-6 ui-md-6 ui-sm-6">
-                            <p:commandButton value="Salvar" actionListener="#{clienteController.salva()}"
-                                             update="form"/>
+                        <div class="ui-g-12">
+                            <div class="ui-g-12 ui-lg-6 ui-md-6 ui-sm-6">
+                                <p:commandButton value="Cancelar" actionListener="#{clienteController.cancela()}"
+                                                 class="secondary-btn" process="@this"/>
+                            </div>
+                            <div class="ui-g-12 ui-lg-6 ui-md-6 ui-sm-6">
+                                <p:commandButton value="Salvar" actionListener="#{clienteController.salva()}"
+                                                 update="form"/>
+                            </div>
                         </div>
                     </p:panel>
                 </div>

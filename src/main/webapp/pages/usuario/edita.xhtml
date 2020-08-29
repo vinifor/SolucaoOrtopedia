@@ -9,110 +9,111 @@
             <h:form id="form">
                 <div class="ui-fluid ui-g">
                     <p:panel header="Usuário" style="width: 100%">
-                        <div class="ui-g-12 ui-lg-8 ui-md-8 ui-sm-12">
-                            <div class="EmptyBox10"/>
-                            <div class="md-inputfield md-inputfield-fill">
-                                <p:inputText id="nome" value="#{usuarioController.usuario.nome}"
-                                             required="true" requiredMessage="Digite o Nome"/>
-                                <p:outputLabel for="nome" value="Nome" />
+                        <div class="ui-g-12">
+                            <div class="ui-g-12 ui-lg-8 ui-md-8 ui-sm-12">
+                                <div class="md-inputfield md-inputfield-fill">
+                                    <p:inputText id="nome" value="#{usuarioController.usuario.nome}"
+                                                 required="true" requiredMessage="Digite o Nome"/>
+                                    <p:outputLabel for="nome" value="Nome" />
+                                </div>
+                            </div>
+
+                            <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
+                                <div class="md-inputfield md-inputfield-fill">
+                                    <p:selectOneMenu id="sexo" value="#{usuarioController.usuario.sexo}"
+                                                     required="true" requiredMessage="Escolha o sexo">
+                                        <f:selectItem itemLabel="" itemValue=""/>
+                                        <f:selectItem itemLabel="MASCULINO" itemValue="MASCULINO"/>
+                                        <f:selectItem itemLabel="FEMININO" itemValue="FEMININO"/>
+                                        <p:ajax update="sexo" event="itemSelect" process="@this"/>
+                                    </p:selectOneMenu>
+                                    <p:outputLabel for="sexo" value="Sexo" />
+                                </div>
                             </div>
                         </div>
 
-                        <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
-                            <div class="EmptyBox10"/>
-                            <div class="md-inputfield md-inputfield-fill">
-                                <p:selectOneMenu id="sexo" value="#{usuarioController.usuario.sexo}">
-                                    <f:selectItem itemLabel="" itemValue=""/>
-                                    <f:selectItem itemLabel="MASCULINO" itemValue="MASCULINO"/>
-                                    <f:selectItem itemLabel="FEMININO" itemValue="FEMININO"/>
-                                    <p:ajax update="sexo" event="itemSelect" process="@this"/>
-                                </p:selectOneMenu>
-                                <p:outputLabel for="sexo" value="Sexo" />
+                        <div class="ui-g-12">
+                            <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
+                                <div class="md-inputfield md-inputfield-fill">
+                                    <p:inputText id="cpf" value="#{usuarioController.usuario.cpf}"
+                                                 required="true" requiredMessage="Digite o CPF"/>
+                                    <p:outputLabel for="cpf" value="CPF" />
+                                </div>
+                            </div>
+
+                            <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
+                                <div class="md-inputfield md-inputfield-fill">
+                                    <p:inputText id="rg" value="#{usuarioController.usuario.rg}"
+                                                 requiredMessage="Digite o RG"/>
+                                    <p:outputLabel for="rg" value="RG" />
+                                </div>
+                            </div>
+
+                            <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
+                                <div class="md-inputfield md-inputfield-fill">
+                                    <p:inputText id="celular" value="#{usuarioController.usuario.celular}" />
+                                    <p:outputLabel for="celular" value="Celular" />
+                                </div>
                             </div>
                         </div>
 
-                        <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
-                            <div class="EmptyBox10"/>
-                            <div class="md-inputfield md-inputfield-fill">
-                                <p:inputText id="cpf" value="#{usuarioController.usuario.cpf}"
-                                             required="true" requiredMessage="Digite o CPF"/>
-                                <p:outputLabel for="cpf" value="CPF" />
+                        <div class="ui-g-12">
+                            <div class="ui-g-12 ui-lg-8 ui-md-8 ui-sm-12">
+                                <div class="md-inputfield md-inputfield-fill">
+                                    <p:inputText id="endereco" value="#{usuarioController.usuario.endereco}"
+                                                 requiredMessage="Digite o Endereço"/>
+                                    <p:outputLabel for="endereco" value="Endereco" />
+                                </div>
+                            </div>
+
+                            <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
+                                <div class="md-inputfield md-inputfield-fill">
+                                    <p:inputText id="email" value="#{usuarioController.usuario.email}" 
+                                                 requiredMessage="Digite o e-mail"/>
+                                    <p:outputLabel for="email" value="E-mail" />
+                                </div>
                             </div>
                         </div>
 
-                        <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
-                            <div class="EmptyBox10"/>
-                            <div class="md-inputfield md-inputfield-fill">
-                                <p:inputText id="rg" value="#{usuarioController.usuario.rg}"
-                                             required="true" requiredMessage="Digite o RG"/>
-                                <p:outputLabel for="rg" value="RG" />
+                        <div class="ui-g-12">
+                            <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
+                                <div class="md-inputfield md-inputfield-fill">
+                                    <p:inputText id="funcao" value="#{usuarioController.usuario.funcao}"
+                                                 requiredMessage="Digite a Função"/>
+                                    <p:outputLabel for="funcao" value="Função" />
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
-                            <div class="EmptyBox10"/>
-                            <div class="md-inputfield md-inputfield-fill">
-                                <p:inputText id="celular" value="#{usuarioController.usuario.celular}" />
-                                <p:outputLabel for="celular" value="Celular" />
+                            <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
+                                <div class="md-inputfield md-inputfield-fill">
+                                    <p:password id="senha" value="#{usuarioController.usuario.senha}" 
+                                                required="true" requiredMessage="Digite a Senha"
+                                                match="senha-rep" validatorMessage="Senhas não combinam"
+                                                disabled="#{usuarioController.usuario.id != null}"/>
+                                    <p:outputLabel for="senha" value="Senha" />
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="ui-g-12 ui-lg-8 ui-md-8 ui-sm-12">
-                            <div class="EmptyBox10"/>
-                            <div class="md-inputfield md-inputfield-fill">
-                                <p:inputText id="endereco" value="#{usuarioController.usuario.endereco}"
-                                             required="true" requiredMessage="Digite o Endereço"/>
-                                <p:outputLabel for="endereco" value="Endereco" />
-                            </div>
-                        </div>
-
-                        <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
-                            <div class="EmptyBox10"/>
-                            <div class="md-inputfield md-inputfield-fill">
-                                <p:inputText id="email" value="#{usuarioController.usuario.email}" 
-                                             required="true" requiredMessage="Digite o e-mail"/>
-                                <p:outputLabel for="email" value="E-mail" />
-                            </div>
-                        </div>
-
-                        <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
-                            <div class="EmptyBox10"/>
-                            <div class="md-inputfield md-inputfield-fill">
-                                <p:inputText id="funcao" value="#{usuarioController.usuario.funcao}"
-                                             required="true" requiredMessage="Digite a Função"/>
-                                <p:outputLabel for="funcao" value="Função" />
-                            </div>
-                        </div>
-
-                        <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
-                            <div class="EmptyBox10"/>
-                            <div class="md-inputfield md-inputfield-fill">
-                                <p:password id="senha" value="#{usuarioController.usuario.senha}" 
-                                            required="true" requiredMessage="Digite a Senha"
-                                            match="senha-rep" validatorMessage="Senhas não combinam"
-                                            disabled="#{usuarioController.usuario.id != null}"/>
-                                <p:outputLabel for="senha" value="Senha" />
-                            </div>
-                        </div>
-
-                        <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
-                            <div class="EmptyBox10"/>
-                            <div class="md-inputfield md-inputfield-fill">
-                                <p:password id="senha-rep" value="#{usuarioController.usuario.senha}"
-                                            required="true" requiredMessage="Repita a Senha"
-                                            disabled="#{usuarioController.usuario.id != null}"/>
-                                <p:outputLabel for="senha-rep" value="Repetir a senha" />
+                            <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
+                                <div class="md-inputfield md-inputfield-fill">
+                                    <p:password id="senha-rep" value="#{usuarioController.usuario.senha}"
+                                                required="true" requiredMessage="Repita a Senha"
+                                                disabled="#{usuarioController.usuario.id != null}"/>
+                                    <p:outputLabel for="senha-rep" value="Repetir a senha" />
+                                </div>
                             </div>
                         </div>
 
 
-                        <div class="ui-g-12 ui-lg-6 ui-md-6 ui-sm-6">
-                            <p:commandButton value="Cancelar" actionListener="#{usuarioController.cancela()}"
-                                             class="secondary-btn" process="@this"/>
-                        </div>
-                        <div class="ui-g-12 ui-lg-6 ui-md-6 ui-sm-6">
-                            <p:commandButton value="Salvar" actionListener="#{usuarioController.salva()}"
-                                             update="form"/>
+                        <div class="ui-g-12">
+                            <div class="ui-g-12 ui-lg-6 ui-md-6 ui-sm-6">
+                                <p:commandButton value="Cancelar" actionListener="#{usuarioController.cancela()}"
+                                                 class="secondary-btn" process="@this"/>
+                            </div>
+                            <div class="ui-g-12 ui-lg-6 ui-md-6 ui-sm-6">
+                                <p:commandButton value="Salvar" actionListener="#{usuarioController.salva()}"
+                                                 update="form"/>
+                            </div>
                         </div>
                     </p:panel>
                 </div>

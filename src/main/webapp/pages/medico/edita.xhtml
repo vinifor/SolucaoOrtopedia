@@ -9,120 +9,103 @@
             <h:form id="form">
                 <div class="ui-fluid ui-g">
                     <p:panel header="Médico" style="width: 100%">
-                        <div class="ui-g-12 ui-lg-8 ui-md-8 ui-sm-12">
-                            <div class="EmptyBox10"/>
-                            <div class="md-inputfield md-inputfield-fill">
-                                <p:inputText id="nome" value="#{medicoController.medico.nome}"
-                                             required="true" requiredMessage="Digite o Nome"/>
-                                <p:outputLabel for="nome" value="Nome" />
+
+                        <div class="ui-g-12">
+                            <div class="ui-g-12 ui-lg-8 ui-md-8 ui-sm-12">
+                                <div class="md-inputfield md-inputfield-fill">
+                                    <p:inputText id="nome" value="#{medicoController.medico.nome}"
+                                                 required="true" requiredMessage="Digite o Nome"/>
+                                    <p:outputLabel for="nome" value="Nome" />
+                                </div>
+                            </div>
+
+                            <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
+                                <div class="md-inputfield md-inputfield-fill">
+                                    <p:selectOneMenu id="sexo" value="#{medicoController.medico.sexo}"
+                                                     required="true" requiredMessage="Escolha o sexo">
+                                        <f:selectItem itemLabel="" itemValue=""/>
+                                        <f:selectItem itemLabel="MASCULINO" itemValue="MASCULINO"/>
+                                        <f:selectItem itemLabel="FEMININO" itemValue="FEMININO"/>
+                                        <p:ajax update="sexo" event="itemSelect" process="@this"/>
+                                    </p:selectOneMenu>
+                                    <p:outputLabel for="sexo" value="Sexo" />
+                                </div>
                             </div>
                         </div>
 
-                        <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
-                            <div class="EmptyBox10"/>
-                            <div class="md-inputfield md-inputfield-fill">
-                                <p:selectOneMenu id="sexo" value="#{medicoController.medico.sexo}">
-                                    <f:selectItem itemLabel="" itemValue=""/>
-                                    <f:selectItem itemLabel="MASCULINO" itemValue="MASCULINO"/>
-                                    <f:selectItem itemLabel="FEMININO" itemValue="FEMININO"/>
-                                    <p:ajax update="sexo" event="itemSelect" process="@this"/>
-                                </p:selectOneMenu>
-                                <p:outputLabel for="sexo" value="Sexo" />
+                        <div class="ui-g-12">
+                            <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
+                                <div class="md-inputfield md-inputfield-fill">
+                                    <p:inputText id="cpf" value="#{medicoController.medico.cpf}"
+                                                 requiredMessage="Digite o CPF"/>
+                                    <p:outputLabel for="cpf" value="CPF" />
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
-                            <div class="EmptyBox10"/>
-                            <div class="md-inputfield md-inputfield-fill">
-                                <p:inputText id="cpf" value="#{medicoController.medico.cpf}"
-                                             required="true" requiredMessage="Digite o CPF"/>
-                                <p:outputLabel for="cpf" value="CPF" />
+                            <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
+                                <div class="md-inputfield md-inputfield-fill">
+                                    <p:inputText id="rg" value="#{medicoController.medico.rg}"
+                                                 requiredMessage="Digite o RG"/>
+                                    <p:outputLabel for="rg" value="RG" />
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
-                            <div class="EmptyBox10"/>
-                            <div class="md-inputfield md-inputfield-fill">
-                                <p:inputText id="rg" value="#{medicoController.medico.rg}"
-                                             required="true" requiredMessage="Digite o RG"/>
-                                <p:outputLabel for="rg" value="RG" />
-                            </div>
-                        </div>
-
-                        <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
-                            <div class="EmptyBox10"/>
-                            <div class="md-inputfield md-inputfield-fill">
-                                <p:inputText id="crm" value="#{medicoController.medico.crm}"
-                                             required="true" requiredMessage="Digite o CRM"/>
-                                <p:outputLabel for="crm" value="CRM" />
-                            </div>
-                        </div>
-
-                        <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
-                            <div class="EmptyBox10"/>
-                            <div class="md-inputfield md-inputfield-fill">
-                                <p:inputText id="qualificacao" value="#{medicoController.medico.qualificacao}"
-                                             required="true" requiredMessage="Digite a Qualificação"/>
-                                <p:outputLabel for="qualificacao" value="Qualificação" />
-                            </div>
-                        </div>
-
-                        <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
-                            <div class="EmptyBox10"/>
-                            <div class="md-inputfield md-inputfield-fill">
-                                <p:inputText id="celular" value="#{medicoController.medico.celular}" />
-                                <p:outputLabel for="celular" value="Celular" />
-                            </div>
-                        </div>
-
-                        <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
-                            <div class="EmptyBox10"/>
-                            <div class="md-inputfield md-inputfield-fill">
-                                <p:inputText id="endereco" value="#{medicoController.medico.endereco}"
-                                             required="true" requiredMessage="Digite o Endereço"/>
-                                <p:outputLabel for="endereco" value="Endereco" />
-                            </div>
-                        </div>
-
-                        <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
-                            <div class="EmptyBox10"/>
-                            <div class="md-inputfield md-inputfield-fill">
-                                <p:inputText id="email" value="#{medicoController.medico.email}" 
-                                             required="true" requiredMessage="Digite o e-mail"/>
-                                <p:outputLabel for="email" value="E-mail" />
-                            </div>
-                        </div>
-
-                        <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
-                            <div class="EmptyBox10"/>
-                            <div class="md-inputfield md-inputfield-fill">
-                                <p:password id="senha" value="#{medicoController.medico.senha}" 
-                                            required="true" requiredMessage="Digite a Senha"
-                                            match="senha-rep" validatorMessage="Senhas não combinam"
-                                            disabled="#{medicoController.medico.id != null}"/>
-                                <p:outputLabel for="senha" value="Senha" />
-                            </div>
-                        </div>
-
-                        <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
-                            <div class="EmptyBox10"/>
-                            <div class="md-inputfield md-inputfield-fill">
-                                <p:password id="senha-rep" value="#{medicoController.medico.senha}"
-                                            required="true" requiredMessage="Repita a Senha"
-                                            disabled="#{medicoController.medico.id != null}"/>
-                                <p:outputLabel for="senha-rep" value="Repetir a senha" />
+                            <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
+                                <div class="md-inputfield md-inputfield-fill">
+                                    <p:inputText id="crm" value="#{medicoController.medico.crm}"
+                                                 required="true" requiredMessage="Digite o CRM"/>
+                                    <p:outputLabel for="crm" value="CRM" />
+                                </div>
                             </div>
                         </div>
 
 
-                        <div class="ui-g-12 ui-lg-6 ui-md-6 ui-sm-6">
-                            <p:commandButton value="Cancelar" actionListener="#{medicoController.cancela()}"
-                                             class="secondary-btn" process="@this"/>
+                        <div class="ui-g-12">
+                            <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
+                                <div class="md-inputfield md-inputfield-fill">
+                                    <p:inputText id="qualificacao" value="#{medicoController.medico.qualificacao}"
+                                                 requiredMessage="Digite a Qualificação"/>
+                                    <p:outputLabel for="qualificacao" value="Qualificação" />
+                                </div>
+                            </div>
+
+                            <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
+                                <div class="md-inputfield md-inputfield-fill">
+                                    <p:inputText id="celular" value="#{medicoController.medico.celular}" />
+                                    <p:outputLabel for="celular" value="Celular" />
+                                </div>
+                            </div>
+
+                            <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
+                                <div class="md-inputfield md-inputfield-fill">
+                                    <p:inputText id="endereco" value="#{medicoController.medico.endereco}"
+                                                 requiredMessage="Digite o Endereço"/>
+                                    <p:outputLabel for="endereco" value="Endereco" />
+                                </div>
+                            </div>
                         </div>
-                        <div class="ui-g-12 ui-lg-6 ui-md-6 ui-sm-6">
-                            <p:commandButton value="Salvar" actionListener="#{medicoController.salva()}"
-                                             update="form"/>
+
+                        <div class="ui-g-12">
+                            <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
+                                <div class="md-inputfield md-inputfield-fill">
+                                    <p:inputText id="email" value="#{medicoController.medico.email}" 
+                                                 requiredMessage="Digite o e-mail"/>
+                                    <p:outputLabel for="email" value="E-mail" />
+                                </div>
+                            </div>
                         </div>
+
+                        <div class="ui-g-12">
+                            <div class="ui-g-12 ui-lg-6 ui-md-6 ui-sm-6">
+                                <p:commandButton value="Cancelar" actionListener="#{medicoController.cancela()}"
+                                                 class="secondary-btn" process="@this"/>
+                            </div>
+                            <div class="ui-g-12 ui-lg-6 ui-md-6 ui-sm-6">
+                                <p:commandButton value="Salvar" actionListener="#{medicoController.salva()}"
+                                                 update="form"/>
+                            </div>
+                        </div>
+
                     </p:panel>
                 </div>
             </h:form>
