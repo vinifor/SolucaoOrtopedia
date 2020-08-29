@@ -34,7 +34,7 @@ public class VideoInformativoController {
 
     public void abrir() {
         carregar();
-        Util.redirect(Paginas.VIDEO_AULA_LISTA);
+        Util.redirect(Paginas.VIDEO_INFORMATIVO_LISTA);
     }
 
     public void carregar() {
@@ -44,12 +44,12 @@ public class VideoInformativoController {
     public void novo() {
         videoInformativo = VideoInformativo.builder()
                 .build();
-        Util.redirect(Paginas.VIDEO_AULA_EDITA);
+        Util.redirect(Paginas.VIDEO_INFORMATIVO_EDITA);
     }
 
     public void edita(VideoInformativo videoInformativo) {
         this.videoInformativo = videoInformativo;
-        Util.redirect(Paginas.VIDEO_AULA_EDITA);
+        Util.redirect(Paginas.VIDEO_INFORMATIVO_EDITA);
     }
 
     public void salva() {
@@ -65,7 +65,7 @@ public class VideoInformativoController {
     public void cancela() {
         videoInformativo = null;
         carregar();
-        Util.redirect(Paginas.VIDEO_AULA_LISTA);
+        Util.redirect(Paginas.VIDEO_INFORMATIVO_LISTA);
     }
 
     public void upload(FileUploadEvent event) {
@@ -92,4 +92,21 @@ public class VideoInformativoController {
             Logger.getLogger(VideoInformativoController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    public VideoInformativo getVideoInformativo() {
+        return videoInformativo;
+    }
+
+    public void setVideoInformativo(VideoInformativo videoInformativo) {
+        this.videoInformativo = videoInformativo;
+    }
+
+    public List<VideoInformativo> getVideoInformativos() {
+        return videoInformativos;
+    }
+
+    public void setVideoInformativos(List<VideoInformativo> videoInformativos) {
+        this.videoInformativos = videoInformativos;
+    }
+
 }

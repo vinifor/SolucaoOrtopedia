@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <f:facet name="first">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+            <meta name="apple-mobile-web-app-capable" content="yes" />
+        </f:facet>
+        <title>Solução em Ortopedia</title>
+        <script type="text/javascript">
+            $(function () {
+                $('#landing-menu-button').on('click', function (e) {
+                    $('#landing-menu').toggleClass('landing-menu-active')
+                    e.preventDefault();
+                });
+
+                $('#landing-menu').on('click', function () {
+                    $('#landing-menu').removeClass('landing-menu-active')
+                });
+            });
+        </script>
+        <h:outputScript name="js/layout.js" library="serenity-layout" />
+        <h:outputScript name="js/ripple.js" library="serenity-layout" />
+    </h:head>
+
+    <h:body styleClass="landing-body">
+        <div class="landing-wrapper">
+            <div id="header">
+                <div>
+                    <a id="landing-menu-button" href="#">
+                        <i class="material-icons">&#xE5D2;</i>
+                    </a>
+
+                    <ul id="landing-menu">
+                        <li>
+                            <a href="#home">HOME</a>
+                        </li>
+                        <li>
+                            <a href="#video">VIDEO</a>
+                        </li>
+                        <li>
+                            <a href="#pricing">PRICING</a>
+                        </li>
+                        <li>
+                            <a href="#contact">CONTACT</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="introduction">
+                <div>
+                    <h1>Solução em Ortopedia</h1>
+                    <p>Modern and elegant responsive application template with a premium look for PrimeFaces components.</p>
+                    <p:button value="LEARN MORE"  styleClass="pink-btn"/>
+                </div>
+            </div>
+
+            <div id="video">
+                <div>
+                    <div class="ui-g">
+                        <div class="ui-g-12 ui-md-6 video-description">
+                            <h3>PrimeFaces Premium Layout and Theme</h3>
+                            <p>Take advantage of media's most prominent business trend, and empowers your internal advertising teams.</p>
+                            <p:button value="LEARN MORE"  styleClass="pink-btn"/>
+                        </div>
+
+                        <div class="ui-g-12 ui-md-6">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/eKQUP2el3zU" frameborder="0" allowfullscreen="true"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="pricing">
+                <div>
+                    <h2>Pricing</h2>
+
+                    <div class="ui-g">
+                        <div class="ui-g-12 ui-md-4">
+                            
+                        </div>
+
+                        <div class="ui-g-12 ui-md-4">
+                            <div class="pricing-box">
+                                <div class="pricing-header">
+                                    <h3>BEGINNER</h3>
+                                    <p>For starts</p>
+                                </div>
+
+                                <div class="pricing-content">
+                                    <div class="pricing-fee">200R$</div>
+
+                                    <ul>
+                                        <li><i class="material-icons">&#xE86C;</i> Assista videos demonstrativos</li>
+                                    </ul>
+
+                                    <p:button styleClass="pink-btn" value="Assine agora"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ui-g-12 ui-md-4">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="contact">
+                <div>
+                    <h2>Contact</h2>
+                    <p>Fill in the fields below and we’ll get back to you</p>
+
+                    <div class="ui-g">
+                        <div class="ui-g-12 ui-md-8 contact-map">
+                            <p:graphicImage name="images/landing/map-contact.png" library="serenity-layout" />
+                        </div>
+
+                        <div class="ui-g-12 ui-md-4 contact-form ui-fluid">
+                            <div class="ui-g-12">
+                                <span class="md-inputfield">
+                                    <p:inputText />
+                                    <label>Name</label>
+                                </span>
+                            </div>
+
+                            <div class="ui-g-12">
+                                <span class="md-inputfield">
+                                    <p:inputText />
+                                    <label>Email</label>
+                                </span>
+                            </div>
+
+                            <div class="ui-g-12">
+                                <span class="md-inputfield">
+                                    <p:inputText />
+                                    <label>Message</label>
+                                </span>
+                            </div>
+
+                            <p:button styleClass="indigo-btn" value="SEND"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h:outputStylesheet name="css/layout-teal.css" library="serenity-layout"/>
+    </h:body>
+
+</html>
