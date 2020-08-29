@@ -20,8 +20,8 @@ public class Medico extends Pessoa {
     private String crm;
 
     @lombok.Builder(builderClassName = "Builder")
-    public Medico(String qualificacao, String crm, String senha, Long id, String name, String cpf, String celular, String email, String endereco, String rg, String sexo) {
-        super(id, name, cpf, celular, email, endereco, rg, sexo, senha);
+    public Medico(String qualificacao, String crm, String senha, Long id, String nome, String cpf, String celular, String email, String endereco, String rg, String sexo) {
+        super(id, nome, cpf, celular, email, endereco, rg, sexo, senha);
         this.qualificacao = qualificacao;
         this.crm = crm;
     }

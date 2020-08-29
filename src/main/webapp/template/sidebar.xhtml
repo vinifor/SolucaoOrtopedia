@@ -26,6 +26,12 @@
                                         outcome="/pages/index.xhtml"/>
                             <p:menuitem id="mi_usuario" value="Usuário" icon="fa fa-user"
                                         actionListener="#{usuarioController.abrir()}"/>
+                            <p:menuitem id="mi_medico" value="Médico" icon="fa fa-user-md"
+                                        actionListener="#{medicoController.abrir()}"/>
+                            <p:menuitem id="mi_cliente" value="Cliente" icon="fa fa-users"
+                                        actionListener="#{clienteController.abrir()}"/>
+                            <p:menuitem id="mi_video_aula" value="Vídeo Aula" icon="fa fa-film"
+                                        actionListener="#{videoAulaController.abrir()}"/>
                         </pm:menu>
                     </h:form>
                 </div>
