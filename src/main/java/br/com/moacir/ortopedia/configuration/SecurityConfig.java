@@ -41,12 +41,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication().dataSource(dataSource)
                 .passwordEncoder(NoOpPasswordEncoder.getInstance())
-                .usersByUsernameQuery("select email, senha as password, true as enabled\n"
+                .usersByUsernameQuery("select cpf, senha as password, true as enabled\n"
                         + "from pessoa\n"
-                        + "where email = ?")
-                .authoritiesByUsernameQuery("select email, 'ROLE_'||dtype as authority\n"
+                        + "where cpf = ?")
+                .authoritiesByUsernameQuery("select cpf, 'ROLE_'||dtype as authority\n"
                         + "from pessoa\n"
-                        + "where email = ?")
+                        + "where cpf = ?")
                 .and()
                 .inMemoryAuthentication().withUser("admin").password("{noop}123").roles("Usuario");
     }
