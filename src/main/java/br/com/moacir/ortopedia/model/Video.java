@@ -25,5 +25,7 @@ public class Video implements Serializable{
     private String tipo;
     @Column
     private String qualificacao;
+    @Column
+    private String nomeArquivo;
 
 }

@@ -37,8 +37,8 @@ public class VideoAula extends Video {
     private Medico medico;
     
     @lombok.Builder(builderClassName = "Builder")
-    public VideoAula(Medico medico, Long id, String titulo, String tipo, String qualificacao) {
-        super(id, titulo, tipo, qualificacao);
+    public VideoAula(Medico medico, Long id, String titulo, String tipo, String qualificacao, String nomeArquivo) {
+        super(id, titulo, tipo, qualificacao, nomeArquivo);
         this.medico = medico;
     }
     

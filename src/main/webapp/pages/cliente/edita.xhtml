@@ -35,16 +35,19 @@
                         <div class="ui-g-12">
                             <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
                                 <div class="md-inputfield md-inputfield-fill">
-                                    <p:inputText id="cpf" value="#{clienteController.cliente.cpf}"
-                                                 required="true" requiredMessage="Digite o CPF"/>
+                                    <p:inputMask id="cpf" value="#{clienteController.cliente.cpf}"
+                                                 required="true" requiredMessage="Digite o CPF"
+                                                 validator="#{CPFValidator.validate}" validatorMessage="CPF inválido"
+                                                 mask="999.999.999-99"/>
                                     <p:outputLabel for="cpf" value="CPF" />
                                 </div>
                             </div>
 
                             <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
                                 <div class="md-inputfield md-inputfield-fill">
-                                    <p:inputText id="rg" value="#{clienteController.cliente.rg}"
-                                                 requiredMessage="Digite o RG"/>
+                                    <p:inputMask id="rg" value="#{clienteController.cliente.rg}"
+                                                 requiredMessage="Digite o RG"
+                                                 mask="99.999.999-9"/>
                                     <p:outputLabel for="rg" value="RG" />
                                 </div>
                             </div>
@@ -61,7 +64,8 @@
                         <div class="ui-g-12">
                             <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
                                 <div class="md-inputfield md-inputfield-fill">
-                                    <p:inputText id="celular" value="#{clienteController.cliente.celular}" />
+                                    <p:inputMask id="celular" value="#{clienteController.cliente.celular}"
+                                                 mask="(99) 9 9999-9999"/>
                                     <p:outputLabel for="celular" value="Celular" />
                                 </div>
                             </div>

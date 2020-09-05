@@ -34,6 +34,15 @@ public class VideoAulaController {
     @Autowired
     private MedicoRepository medicoRepository;
 
+    private final String diretorio = System.getProperty("user.dir")
+            + File.separator + "src"
+            + File.separator + "main"
+            + File.separator + "webapp"
+            + File.separator + "resources"
+            + File.separator + "serenity-layout"
+            + File.separator + "videos"
+            + File.separator + "aula";
+
     private VideoAula videoAula;
     private List<VideoAula> videoAulas;
 
@@ -64,6 +73,7 @@ public class VideoAulaController {
 
     public void deleta(VideoAula videoAula) {
         repository.delete(videoAula);
+        new File(diretorio).delete();
         carregar();
     }
 
@@ -80,24 +90,19 @@ public class VideoAulaController {
     public void upload(FileUploadEvent event) {
         System.out.println(event.getFile().getContentType());
         System.out.println(event.getFile().getFileName());
-        File folder = new File(System.getProperty("user.dir")
-                + File.separator + "src"
-                + File.separator + "main"
-                + File.separator + "webapp"
-                + File.separator + "resources"
-                + File.separator + "serenity-layout"
-                + File.separator + "videos"
-                + File.separator + "aula");
+        File folder = new File(diretorio);
         if (!folder.exists()) {
             folder.mkdirs();
         }
-        try ( InputStream is = event.getFile().getInputStream()) {
-            try ( OutputStream os = new FileOutputStream(folder.getAbsolutePath() + File.separator + event.getFile().getFileName())) {
+        try (InputStream is = event.getFile().getInputStream()) {
+            try (OutputStream os = new FileOutputStream(folder.getAbsolutePath() + File.separator + event.getFile().getFileName())) {
                 byte buf[] = new byte[1024];
                 int len;
                 while ((len = is.read(buf)) > 0) {
                     os.write(buf, 0, len);
                 }
+
+                videoAula.setNomeArquivo(event.getFile().getFileName());
             }
         } catch (IOException ex) {
             Logger.getLogger(VideoAulaController.class.getName()).log(Level.SEVERE, null, ex);

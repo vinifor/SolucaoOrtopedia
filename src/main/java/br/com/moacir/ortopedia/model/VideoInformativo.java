@@ -28,15 +28,14 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 public class VideoInformativo extends Video {
-    
+
     @Column
     private Boolean visializacao;
-    
+
     @lombok.Builder(builderClassName = "Builder")
-    public VideoInformativo(Boolean visializacao, Long id, String titulo, String tipo, String qualificacao) {
-        super(id, titulo, tipo, qualificacao);
+    public VideoInformativo(Boolean visializacao, Long id, String titulo, String tipo, String qualificacao, String nomeArquivo) {
+        super(id, titulo, tipo, qualificacao, nomeArquivo);
         this.visializacao = visializacao;
     }
-    
-    
+
 }

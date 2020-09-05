@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 public class MedicoConverter implements Converter { 
 
    @Override
-    public Object getAsObject(FacesContext ctx, UIComponent component,
+    public Object getAsObject(FacesContext context, UIComponent component,
             String value) {
         if (value != null) {
             return this.getAttributesFrom(component).get(value);

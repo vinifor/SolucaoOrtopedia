@@ -28,6 +28,15 @@ public class VideoInformativoController {
 
     @Autowired
     private VideoInformativoRepository repository;
+    
+    private final String diretorio = System.getProperty("user.dir")
+                + File.separator + "src"
+                + File.separator + "main"
+                + File.separator + "webapp"
+                + File.separator + "resources"
+                + File.separator + "serenity-layout"
+                + File.separator + "videos"
+                + File.separator + "informativo";
 
     private VideoInformativo videoInformativo;
     private List<VideoInformativo> videoInformativos;
@@ -59,6 +68,7 @@ public class VideoInformativoController {
 
     public void deleta(VideoInformativo videoInformativo) {
         repository.delete(videoInformativo);
+        new File(diretorio).delete();
         carregar();
     }
 
@@ -69,24 +79,19 @@ public class VideoInformativoController {
     }
 
     public void upload(FileUploadEvent event) {
-        File folder = new File(System.getProperty("user.dir")
-                + File.separator + "src"
-                + File.separator + "main"
-                + File.separator + "webapp"
-                + File.separator + "resources"
-                + File.separator + "serenity-layout"
-                + File.separator + "videos"
-                + File.separator + "informativo");
+        File folder = new File(diretorio);
         if (!folder.exists()) {
             folder.mkdirs();
         }
-        try ( InputStream is = event.getFile().getInputStream()) {
-            try ( OutputStream os = new FileOutputStream(folder.getAbsolutePath() + File.separator + event.getFile().getFileName())) {
+        try (InputStream is = event.getFile().getInputStream()) {
+            try (OutputStream os = new FileOutputStream(folder.getAbsolutePath() + File.separator + event.getFile().getFileName())) {
                 byte buf[] = new byte[1024];
                 int len;
                 while ((len = is.read(buf)) > 0) {
                     os.write(buf, 0, len);
                 }
+
+                videoInformativo.setNomeArquivo(event.getFile().getFileName());
             }
         } catch (IOException ex) {
             Logger.getLogger(VideoInformativoController.class.getName()).log(Level.SEVERE, null, ex);
