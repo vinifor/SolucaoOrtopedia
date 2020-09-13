@@ -6,6 +6,7 @@
 package br.com.moacir.ortopedia.controller;
 
 import br.com.moacir.ortopedia.model.Bandeira;
+import br.com.moacir.ortopedia.model.Cliente;
 import br.com.moacir.ortopedia.model.Pagamento;
 import br.com.moacir.ortopedia.repository.ClienteRepository;
 import br.com.moacir.ortopedia.repository.PagamentoRepository;
@@ -45,9 +46,11 @@ public class PagamentoController {
     }
 
     public void novo() {
+        Cliente cliente = clienteRepository.findByCpf(Util.getUserDetails().getUsername());
         pagamento = Pagamento.builder()
-                .cliente(clienteRepository.findByCpf(Util.getUserDetails().getUsername()))
+                .cliente(cliente)
                 .dataPagamento(LocalDate.now())
+                .valor(cliente.getMensalidade())
                 .build();
         Util.redirect(Paginas.PAGAMENTO_EDITA);
     }

@@ -30,12 +30,12 @@ import lombok.NoArgsConstructor;
 public class VideoInformativo extends Video {
 
     @Column
-    private Boolean visializacao;
+    private Boolean status;
 
     @lombok.Builder(builderClassName = "Builder")
-    public VideoInformativo(Boolean visializacao, Long id, String titulo, String tipo, String qualificacao, String nomeArquivo) {
+    public VideoInformativo(Boolean status, Long id, String titulo, String tipo, String qualificacao, String nomeArquivo) {
         super(id, titulo, tipo, qualificacao, nomeArquivo);
-        this.visializacao = visializacao;
+        this.status = status;
     }
 
 }

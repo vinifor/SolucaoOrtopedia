@@ -55,6 +55,8 @@ public class Pagamento implements Serializable {
     @Column
     private LocalDate dataPagamento;
     @Column
+    private Double valor;
+    @Column
     @Enumerated(EnumType.STRING)
     private Bandeira bandeira;
     @JoinColumn(foreignKey = @ForeignKey(name = "fk_pagamento_reference_cliente"))
