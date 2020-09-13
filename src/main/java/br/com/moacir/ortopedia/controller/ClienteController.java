@@ -24,6 +24,8 @@ public class ClienteController {
     private Cliente cliente;
     private List<Cliente> clientes;
 
+    private boolean editaPerfil = false;
+
     public void abrir() {
         carregar();
         Util.redirect(Paginas.CLIENTE_LISTA);
@@ -35,6 +37,7 @@ public class ClienteController {
 
     public void novo() {
         cliente = Cliente.builder()
+                .mensalidade(100.0)
                 .build();
         Util.redirect(Paginas.CLIENTE_EDITA);
     }
@@ -56,8 +59,19 @@ public class ClienteController {
 
     public void cancela() {
         cliente = null;
-        carregar();
-        Util.redirect(Paginas.CLIENTE_LISTA);
+        if (editaPerfil) {
+            editaPerfil = false;
+            Util.redirect(Paginas.HOME);
+        } else {
+            carregar();
+            Util.redirect(Paginas.CLIENTE_LISTA);
+        }
+    }
+
+    public void editaPerfil() {
+        cliente = repository.findByCpf(Util.getUserDetails().getUsername());
+        editaPerfil = true;
+        Util.redirect(Paginas.CLIENTE_PERFIL);
     }
 
     public Cliente getCliente() {

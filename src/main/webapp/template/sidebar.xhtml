@@ -25,15 +25,29 @@
                             <p:menuitem id="mi_home" value="Home" icon="fa fa-home"
                                         outcome="/pages/index.xhtml"/>
                             <p:menuitem id="mi_usuario" value="Usuário" icon="fa fa-user"
-                                        actionListener="#{usuarioController.abrir()}"/>
+                                        actionListener="#{usuarioController.abrir()}"
+                                        rendered="#{menuController.usuario}"/>
                             <p:menuitem id="mi_medico" value="Médico" icon="fa fa-user-md"
-                                        actionListener="#{medicoController.abrir()}"/>
+                                        actionListener="#{medicoController.abrir()}"
+                                        rendered="#{menuController.usuario}"/>
                             <p:menuitem id="mi_cliente" value="Cliente" icon="fa fa-users"
-                                        actionListener="#{clienteController.abrir()}"/>
+                                        actionListener="#{clienteController.abrir()}"
+                                        rendered="#{menuController.usuario}"/>
+                            <p:menuitem id="mi_perfil" value="Perfil" icon="fa fa-users"
+                                        actionListener="#{clienteController.editaPerfil()}"
+                                        rendered="#{menuController.cliente}"/>
                             <p:menuitem id="mi_video_aula" value="Vídeo Aula" icon="fa fa-film"
-                                        actionListener="#{videoAulaController.abrir()}"/>
+                                        actionListener="#{videoAulaController.abrir()}"
+                                        rendered="#{menuController.usuario}"/>
                             <p:menuitem id="mi_video_informativo" value="Vídeo Informativo" icon="fa fa-film"
-                                        actionListener="#{videoInformativoController.abrir()}"/>
+                                        actionListener="#{videoInformativoController.abrir()}"
+                                        rendered="#{menuController.usuario}"/>
+                            <p:menuitem id="mi_pagamento" value="Pagamento" icon="fa fa-dollar"
+                                        actionListener="#{pagamentoController.abrir()}"
+                                        rendered="#{menuController.usuario}"/>
+                            <p:menuitem id="mi_pagar" value="Pagar" icon="fa fa-dollar"
+                                        actionListener="#{pagamentoController.novo()}"
+                                        rendered="#{menuController.cliente}"/>
                         </pm:menu>
                     </h:form>
                 </div>

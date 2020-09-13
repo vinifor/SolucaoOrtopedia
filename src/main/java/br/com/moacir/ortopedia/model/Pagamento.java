@@ -17,8 +17,12 @@ package br.com.moacir.ortopedia.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,15 +30,17 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder(builderClassName = "Builder")
 @Entity
-public class Pagamento implements Serializable{
-    
+public class Pagamento implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -46,7 +52,24 @@ public class Pagamento implements Serializable{
     private String nomeTitular;
     @Column
     private LocalDate dataValidade;
-    @JoinColumn(foreignKey = @ForeignKey(name = "fk_pagamento_reference_bandeira"))
-    @ManyToOne
+    @Column
+    private LocalDate dataPagamento;
+    @Column
+    @Enumerated(EnumType.STRING)
     private Bandeira bandeira;
+    @JoinColumn(foreignKey = @ForeignKey(name = "fk_pagamento_reference_cliente"))
+    @ManyToOne
+    private Cliente cliente;
+
+    public LocalDate getValidade() {
+        return dataPagamento.plusMonths(1);
+    }
+
+    public Date getValidadeAsUtilDate() {
+        return Date.from(getValidade().atStartOfDay(ZoneId.systemDefault()).toInstant());
+    }
+
+    public Date getDataPagamentoAsUtilDate() {
+        return Date.from(dataPagamento.atStartOfDay(ZoneId.systemDefault()).toInstant());
+    }
 }

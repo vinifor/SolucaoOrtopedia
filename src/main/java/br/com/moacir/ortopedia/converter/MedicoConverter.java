@@ -15,9 +15,9 @@ import org.springframework.stereotype.Component;
 
 @FacesConverter(value = "MedicoConverter", forClass = Medico.class)
 @Component(value = "MedicoConverter")
-public class MedicoConverter implements Converter { 
+public class MedicoConverter implements Converter {
 
-   @Override
+    @Override
     public Object getAsObject(FacesContext context, UIComponent component,
             String value) {
         if (value != null) {
@@ -52,5 +52,5 @@ public class MedicoConverter implements Converter {
     private Map<String, Object> getAttributesFrom(UIComponent component) {
         return component.getAttributes();
     }
-    
+
 }

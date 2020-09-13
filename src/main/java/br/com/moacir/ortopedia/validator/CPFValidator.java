@@ -5,6 +5,7 @@
  */
 package br.com.moacir.ortopedia.validator;
 
+import static br.com.moacir.ortopedia.util.Util.removeMascara;
 import java.util.InputMismatchException;
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
@@ -26,7 +27,7 @@ public class CPFValidator implements Validator<String> {
 
     @Override
     public void validate(FacesContext context, UIComponent component, String value) throws ValidatorException {
-        String cpf = unmask(value);
+        String cpf = removeMascara(value);
         if (cpf.equals("00000000000") || cpf.equals("11111111111")
                 || cpf.equals("22222222222") || cpf.equals("33333333333")
                 || cpf.equals("44444444444") || cpf.equals("55555555555")
@@ -79,10 +80,6 @@ public class CPFValidator implements Validator<String> {
         } catch (InputMismatchException erro) {
             throw new ValidatorException(message);
         }
-    }
-
-    private String unmask(String value) {
-        return value.replaceAll("\\D", "");
     }
 
 }

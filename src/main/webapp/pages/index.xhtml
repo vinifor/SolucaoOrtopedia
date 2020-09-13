@@ -7,13 +7,58 @@
     <ui:composition 
         template="/template/template.xhtml">
         <ui:define name="content">
+            <h:form id="form">
+                <div class="ui-fluid ui-g">
+                    <p:panel header="Encontre seu Video" style="width: 100%">
+                        <div class="ui-g-12">
+                            <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
+                                <div class="md-inputfield md-inputfield-fill">
+                                    <p:inputText id="titulo" value="#{homeController.titulo}"/>
+                                    <p:outputLabel for="titulo" value="Título" />
+                                </div>
+                            </div>
+
+                            <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
+                                <div class="md-inputfield md-inputfield-fill">
+                                    <p:autoComplete id="medico" value="#{homeController.medico}"
+                                                    completeMethod="#{homeController.medicos}" 
+                                                    converter="#{MedicoConverter}" dropdown="true" 
+                                                    forceSelection="true" var="medico" 
+                                                    itemLabel="#{medico.nome}" itemValue="#{medico}"/>
+                                    <p:outputLabel for="medico" value="Médico" />
+                                </div>
+                            </div>
+                            <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
+                                <p:commandButton value="Buscar" actionListener="#{homeController.buscaVideoAulas()}"
+                                                 update="form" class="secondary-btn"/>
+                            </div>
+                        </div>
+
+                        <div class="ui-g-12">
+                            <p:dataTable id="lista" var="videoAula" value="#{homeController.videoAulas}">
+                                <p:column headerText="Título" filterBy="#{videoAula.titulo}">
+                                    <h:outputText value="#{videoAula.titulo}" />
+                                </p:column>
+                                <p:column headerText="Médico" filterBy="#{videoAula.titulo}">
+                                    <h:outputText value="#{videoAula.medico.nome}" />
+                                </p:column>
+                                <p:column headerText="Assistir" style="width: 10%">
+                                    <div class="ui-g-12 ui-sm-12 ui-md-6 ui-lg-6">
+                                        <p:commandButton icon="fa fa-play"
+                                                         id="play" class="secondary-btn"/>
+                                        <p:tooltip for="play" value="Assistir"/>
+                                    </div>
+                                </p:column>
+                            </p:dataTable>
+                        </div>
+                    </p:panel>
+                </div>
+            </h:form>
             <!--            <video width="70%" controls="true">
                             <source src="{request.contextPath}/javax.faces.resource/videos/aula/1XBET.COM_promo_SHREK_dinheiro_livre.mp4.xhtml?ln=serenity-layout" 
                                     type="video/mp4"/>
                             Your browser does not support HTML video.
                         </video>-->
         </ui:define>
-
-
     </ui:composition>
 </html>

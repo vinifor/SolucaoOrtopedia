@@ -5,10 +5,13 @@
  */
 package br.com.moacir.ortopedia.repository;
 
-import br.com.moacir.ortopedia.model.Cliente;
+import br.com.moacir.ortopedia.model.Pagamento;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ClienteRepository extends JpaRepository<Cliente, Long> {
+/**
+ *
+ * @author vinif
+ */
+public interface PagamentoRepository extends JpaRepository<Pagamento, Long> {
 
-    Cliente findByCpf(String cpf);
 }
