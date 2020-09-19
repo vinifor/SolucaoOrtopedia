@@ -59,6 +59,7 @@
             
             <p:dialog id="video_dialog" closeOnEscape="true" draggable="false" closable="true" minimizable="true"
                       modal="true" resizable="false" widgetVar="video_dialog">
+                <p:ajax event="close" update="video_dialog" listener="#{homeController.setVideoAula(null)}"/>
                 <video width="800" controls="true">
                     <source src="#{request.contextPath}/javax.faces.resource/videos/aula/#{homeController.videoAula.nomeArquivo}.xhtml?ln=serenity-layout" 
                             type="#{homeController.videoAula.tipo}"/>

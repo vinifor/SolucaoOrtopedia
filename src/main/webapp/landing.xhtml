@@ -42,14 +42,14 @@
                             <a href="login.xhtml">Login</a>
                         </li>
                         <li>
-                            <a href="#video">Videos</a>
+                            <a href="#video">Videos Informativos</a>
                         </li>
                         <li>
                             <a href="#pricing">Preços</a>
                         </li>
-<!--                        <li>
-                            <a href="#contact">Contato</a>
-                        </li>-->
+                        <!--                        <li>
+                                                    <a href="#contact">Contato</a>
+                                                </li>-->
                     </ul>
                 </div>
             </div>
@@ -72,6 +72,7 @@
 
                             <div class="ui-g-12 ui-md-6" align="center">
                                 <p:outputLabel value="#{video.titulo}" class="Fs18 FontBold"/>
+                                <div class="EmptyBox10"/>
                                 <video width="100%" controls="true">
                                     <source src="#{request.contextPath}/javax.faces.resource/videos/informativo/#{video.nomeArquivo}.xhtml?ln=serenity-layout" 
                                             type="#{video.tipo}"/>
@@ -123,43 +124,43 @@
                 </div>
             </div>
 
-<!--            <div id="contact">
-                <div>
-                    <h2>Contact</h2>
-                    <p>Fill in the fields below and we’ll get back to you</p>
-
-                    <div class="ui-g">
-                        <div class="ui-g-12 ui-md-8 contact-map">
-                            <p:graphicImage name="images/landing/map-contact.png" library="serenity-layout" />
-                        </div>
-
-                        <div class="ui-g-12 ui-md-4 contact-form ui-fluid">
-                            <div class="ui-g-12">
-                                <span class="md-inputfield">
-                                    <p:inputText />
-                                    <label>Name</label>
-                                </span>
+            <!--            <div id="contact">
+                            <div>
+                                <h2>Contact</h2>
+                                <p>Fill in the fields below and we’ll get back to you</p>
+            
+                                <div class="ui-g">
+                                    <div class="ui-g-12 ui-md-8 contact-map">
+                                        <p:graphicImage name="images/landing/map-contact.png" library="serenity-layout" />
+                                    </div>
+            
+                                    <div class="ui-g-12 ui-md-4 contact-form ui-fluid">
+                                        <div class="ui-g-12">
+                                            <span class="md-inputfield">
+                                                <p:inputText />
+                                                <label>Name</label>
+                                            </span>
+                                        </div>
+            
+                                        <div class="ui-g-12">
+                                            <span class="md-inputfield">
+                                                <p:inputText />
+                                                <label>Email</label>
+                                            </span>
+                                        </div>
+            
+                                        <div class="ui-g-12">
+                                            <span class="md-inputfield">
+                                                <p:inputText />
+                                                <label>Message</label>
+                                            </span>
+                                        </div>
+            
+                                        <p:button styleClass="indigo-btn" value="SEND"/>
+                                    </div>
+                                </div>
                             </div>
-
-                            <div class="ui-g-12">
-                                <span class="md-inputfield">
-                                    <p:inputText />
-                                    <label>Email</label>
-                                </span>
-                            </div>
-
-                            <div class="ui-g-12">
-                                <span class="md-inputfield">
-                                    <p:inputText />
-                                    <label>Message</label>
-                                </span>
-                            </div>
-
-                            <p:button styleClass="indigo-btn" value="SEND"/>
-                        </div>
-                    </div>
-                </div>
-            </div>-->
+                        </div>-->
         </div>
         <p:dialog id="assinar" closeOnEscape="true" draggable="false" closable="true" minimizable="true"
                   modal="true" resizable="false" widgetVar="assinar" header="Cadastre-se" width="90%">
