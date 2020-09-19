@@ -10,6 +10,7 @@ import java.util.Collection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -25,19 +26,36 @@ public class Util {
         }
     }
 
+    public static void showErrorMessage(String message, String detail) {
+        showMessage(message, detail, FacesMessage.SEVERITY_ERROR);
+    }
+    
+    public static void showInfoMessage(String message, String detail) {
+        showMessage(message, detail, FacesMessage.SEVERITY_INFO);
+    }
+    
+    public static void showWarnMessage(String message, String detail) {
+        showMessage(message, detail, FacesMessage.SEVERITY_WARN);
+    }
+
+    public static void showMessage(String message, String detail, FacesMessage.Severity severity) {
+        FacesContext.getCurrentInstance()
+                .addMessage(null, new FacesMessage(severity, message, detail));
+    }
+
     public static UserDetails getUserDetails() {
         return (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     }
-    
-    public static Collection<? extends GrantedAuthority> getGrantedAuthoritys(){
+
+    public static Collection<? extends GrantedAuthority> getGrantedAuthoritys() {
         return getUserDetails().getAuthorities();
     }
-    
+
     public static boolean matchRegex(String regex, String value) {
         return Pattern.compile(regex).matcher(removeMascara(value)).matches();
     }
-    
-    public static String removeMascara(String value){
+
+    public static String removeMascara(String value) {
         return value.replaceAll("\\D", "");
     }
 }

@@ -67,8 +67,12 @@ public class VideoAulaController {
     }
 
     public void salva() {
-        repository.save(videoAula);
-        cancela();
+        if (videoAula.getNomeArquivo() != null && !videoAula.getNomeArquivo().isEmpty()) {
+            repository.save(videoAula);
+            cancela();
+        } else {
+            Util.showErrorMessage("Faça upload do video antes de salvar", "");
+        }
     }
 
     public void deleta(VideoAula videoAula) {
@@ -88,8 +92,6 @@ public class VideoAulaController {
     }
 
     public void upload(FileUploadEvent event) {
-        System.out.println(event.getFile().getContentType());
-        System.out.println(event.getFile().getFileName());
         File folder = new File(diretorio);
         if (!folder.exists()) {
             folder.mkdirs();
@@ -103,6 +105,7 @@ public class VideoAulaController {
                 }
 
                 videoAula.setNomeArquivo(event.getFile().getFileName());
+                videoAula.setTipo(event.getFile().getContentType());
             }
         } catch (IOException ex) {
             Logger.getLogger(VideoAulaController.class.getName()).log(Level.SEVERE, null, ex);

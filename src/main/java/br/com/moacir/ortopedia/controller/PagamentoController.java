@@ -47,12 +47,16 @@ public class PagamentoController {
 
     public void novo() {
         Cliente cliente = clienteRepository.findByCpf(Util.getUserDetails().getUsername());
-        pagamento = Pagamento.builder()
-                .cliente(cliente)
-                .dataPagamento(LocalDate.now())
-                .valor(cliente.getMensalidade())
-                .build();
-        Util.redirect(Paginas.PAGAMENTO_EDITA);
+        if (repository.findByClienteAndDataPagamentoGreaterThanEqual(cliente, LocalDate.now().minusMonths(1)).isEmpty()) {
+            pagamento = Pagamento.builder()
+                    .cliente(cliente)
+                    .dataPagamento(LocalDate.now())
+                    .valor(cliente.getMensalidade())
+                    .build();
+            Util.redirect(Paginas.PAGAMENTO_EDITA);
+        } else {
+            Util.showInfoMessage("O Pagamento anterior ainda está válido", "");
+        }
     }
 
     public void salva() {

@@ -10,7 +10,7 @@
                 <div class="ui-fluid ui-g">
                     <p:panel header="Vídeo Informativo" style="width: 100%">
                         <div class="ui-g-12">
-                            <div class="ui-g-12 ui-lg-8 ui-md-8 ui-sm-12">
+                            <div class="ui-g-12 ui-lg-7 ui-md-7 ui-sm-12">
                                 <div class="md-inputfield md-inputfield-fill">
                                     <p:inputText id="titulo" value="#{videoInformativoController.videoInformativo.titulo}"
                                                  required="true" requiredMessage="Digite o Título"/>
@@ -24,6 +24,10 @@
                                                  required="true" requiredMessage="Digite a Assunto"/>
                                     <p:outputLabel for="qualificacao" value="Assunto" />
                                 </div>
+                            </div>
+                            <div class="ui-g-12 ui-lg-1 ui-md-1 ui-sm-12">
+                                <p:selectBooleanCheckbox value="#{videoInformativoController.videoInformativo.status}"
+                                                         itemLabel="Status" style="width: 100%"/>
                             </div>
                         </div>
 

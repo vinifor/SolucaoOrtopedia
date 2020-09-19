@@ -7,6 +7,7 @@ package br.com.moacir.ortopedia.util;
 
 public enum Paginas {
     HOME("/pages/index.xhtml"),
+    LOGIN("/login.xhtml"),
     CLIENTE_EDITA("/pages/cliente/edita.xhtml"),
     CLIENTE_LISTA("/pages/cliente/lista.xhtml"),
     CLIENTE_PERFIL("/pages/cliente/perfil.xhtml"),

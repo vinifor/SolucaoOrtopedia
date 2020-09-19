@@ -42,10 +42,12 @@
                                 <p:column headerText="Médico" filterBy="#{videoAula.titulo}">
                                     <h:outputText value="#{videoAula.medico.nome}" />
                                 </p:column>
-                                <p:column headerText="Assistir" style="width: 10%">
+                                <p:column headerText="Assistir" style="width: 5%">
                                     <div class="ui-g-12 ui-sm-12 ui-md-6 ui-lg-6">
                                         <p:commandButton icon="fa fa-play"
-                                                         id="play" class="secondary-btn"/>
+                                                         id="play" class="secondary-btn"
+                                                         actionListener="#{homeController.setVideoAula(videoAula)}"
+                                                         update="video_dialog" oncomplete="PF('video_dialog').show()"/>
                                         <p:tooltip for="play" value="Assistir"/>
                                     </div>
                                 </p:column>
@@ -54,11 +56,16 @@
                     </p:panel>
                 </div>
             </h:form>
-            <!--            <video width="70%" controls="true">
-                            <source src="{request.contextPath}/javax.faces.resource/videos/aula/1XBET.COM_promo_SHREK_dinheiro_livre.mp4.xhtml?ln=serenity-layout" 
-                                    type="video/mp4"/>
-                            Your browser does not support HTML video.
-                        </video>-->
+            
+            <p:dialog id="video_dialog" closeOnEscape="true" draggable="false" closable="true" minimizable="true"
+                      modal="true" resizable="false" widgetVar="video_dialog">
+                <video width="800" controls="true">
+                    <source src="#{request.contextPath}/javax.faces.resource/videos/aula/#{homeController.videoAula.nomeArquivo}.xhtml?ln=serenity-layout" 
+                            type="#{homeController.videoAula.tipo}"/>
+                    Your browser does not support HTML video.
+                </video>
+            </p:dialog>
+            
         </ui:define>
     </ui:composition>
 </html>

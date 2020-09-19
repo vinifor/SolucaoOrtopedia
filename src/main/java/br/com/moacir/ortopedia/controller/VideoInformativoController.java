@@ -28,15 +28,15 @@ public class VideoInformativoController {
 
     @Autowired
     private VideoInformativoRepository repository;
-    
+
     private final String diretorio = System.getProperty("user.dir")
-                + File.separator + "src"
-                + File.separator + "main"
-                + File.separator + "webapp"
-                + File.separator + "resources"
-                + File.separator + "serenity-layout"
-                + File.separator + "videos"
-                + File.separator + "informativo";
+            + File.separator + "src"
+            + File.separator + "main"
+            + File.separator + "webapp"
+            + File.separator + "resources"
+            + File.separator + "serenity-layout"
+            + File.separator + "videos"
+            + File.separator + "informativo";
 
     private VideoInformativo videoInformativo;
     private List<VideoInformativo> videoInformativos;
@@ -52,6 +52,7 @@ public class VideoInformativoController {
 
     public void novo() {
         videoInformativo = VideoInformativo.builder()
+                .status(true)
                 .build();
         Util.redirect(Paginas.VIDEO_INFORMATIVO_EDITA);
     }
@@ -62,8 +63,12 @@ public class VideoInformativoController {
     }
 
     public void salva() {
-        repository.save(videoInformativo);
-        cancela();
+        if (videoInformativo.getNomeArquivo() != null && !videoInformativo.getNomeArquivo().isEmpty()) {
+            repository.save(videoInformativo);
+            cancela();
+        } else {
+            Util.showErrorMessage("Faça upload do video antes de salvar", "");
+        }
     }
 
     public void deleta(VideoInformativo videoInformativo) {
@@ -92,6 +97,7 @@ public class VideoInformativoController {
                 }
 
                 videoInformativo.setNomeArquivo(event.getFile().getFileName());
+                videoInformativo.setTipo(event.getFile().getContentType());
             }
         } catch (IOException ex) {
             Logger.getLogger(VideoInformativoController.class.getName()).log(Level.SEVERE, null, ex);

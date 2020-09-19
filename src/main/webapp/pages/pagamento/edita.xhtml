@@ -11,26 +11,25 @@
                     <p:panel header="Pagamento" style="width: 100%">
                         <div class="ui-g-12">
                             <div class="ui-g-12 ui-lg-8 ui-md-8 ui-sm-12">
-                                <div class="EmptyBox10"/>
                                 <div class="md-inputfield md-inputfield-fill">
                                     <p:inputText id="nomeTitular" value="#{pagamentoController.pagamento.nomeTitular}"
                                                  required="true" requiredMessage="Digite o Nome do Titular"/>
                                     <p:outputLabel for="nomeTitular" value="Nome do Titular" />
                                 </div>
                             </div>
-                                
+
                             <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
-                                <div class="EmptyBox10"/>
                                 <div class="md-inputfield md-inputfield-fill">
                                     <p:datePicker id="dataValidade" value="#{pagamentoController.pagamento.dataValidade}"
-                                                 required="true" requiredMessage="Escolha a data de validade"
-                                                 pattern="MM/yyyy" view="month" yearNavigator="true"/>
+                                                  required="true" requiredMessage="Escolha a data de validade"
+                                                  pattern="MM/yyyy" view="month" yearNavigator="true"/>
                                     <p:outputLabel for="dataValidade" value="Data de Validade" />
                                 </div>
                             </div>
-                                
+                        </div>
+
+                        <div class="ui-g-12">
                             <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
-                                <div class="EmptyBox10"/>
                                 <div class="md-inputfield md-inputfield-fill">
                                     <p:inputMask id="numeroCartao" value="#{pagamentoController.pagamento.numeroCartao}"
                                                  required="true" requiredMessage="Digite o Número do Cartão"
@@ -41,25 +40,23 @@
                                     <p:outputLabel for="numeroCartao" value="Número do Cartão" />
                                 </div>
                             </div>
-                                
+
                             <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
-                                <div class="EmptyBox10"/>
                                 <div class="md-inputfield md-inputfield-fill">
                                     <p:inputText id="bandeira" value="#{pagamentoController.pagamento.bandeira.nome}"
                                                  readonly="true"/>
                                     <p:outputLabel for="bandeira" value="Bandeira" />
                                 </div>
                             </div>
-                                
+
                             <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
-                                <div class="EmptyBox10"/>
                                 <div class="md-inputfield md-inputfield-fill">
                                     <p:inputText id="codigoSeguranca" value="#{pagamentoController.pagamento.codigoSeguranca}"
                                                  required="true" requiredMessage="Digite o Código de Segurança"/>
                                     <p:outputLabel for="codigoSeguranca" value="Código de Segurança (CVV)" />
                                 </div>
                             </div>
-                                
+
                         </div>
 
                         <div class="ui-g-12">
