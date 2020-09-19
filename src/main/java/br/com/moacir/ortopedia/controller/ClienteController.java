@@ -24,54 +24,19 @@ public class ClienteController {
     private Cliente cliente;
     private List<Cliente> clientes;
 
-    private boolean editaPerfil = false;
-
-    public void abrir() {
-        carregar();
-        Util.redirect(Paginas.CLIENTE_LISTA);
-    }
-
-    public void carregar() {
-        clientes = repository.findAll();
-    }
-
-    public void novo() {
-        cliente = Cliente.builder()
-                .mensalidade(100.0)
-                .build();
-        Util.redirect(Paginas.CLIENTE_EDITA);
-    }
-
-    public void edita(Cliente cliente) {
-        this.cliente = cliente;
-        Util.redirect(Paginas.CLIENTE_EDITA);
-    }
-
     public void salva() {
         repository.save(cliente);
         cancela();
     }
 
-    public void deleta(Cliente cliente) {
-        repository.delete(cliente);
-        carregar();
-    }
-
     public void cancela() {
         cliente = null;
-        if (editaPerfil) {
-            editaPerfil = false;
-            Util.redirect(Paginas.HOME);
-        } else {
-            carregar();
-            Util.redirect(Paginas.CLIENTE_LISTA);
-        }
+        Util.redirect(Paginas.HOME);
     }
 
     public void editaPerfil() {
         cliente = repository.findByCpf(Util.getUserDetails().getUsername());
-        editaPerfil = true;
-        Util.redirect(Paginas.CLIENTE_PERFIL);
+        Util.redirect(Paginas.CLIENTE_EDITA);
     }
 
     public Cliente getCliente() {

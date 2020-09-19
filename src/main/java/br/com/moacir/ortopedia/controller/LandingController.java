@@ -8,10 +8,8 @@ package br.com.moacir.ortopedia.controller;
 import br.com.moacir.ortopedia.model.Bandeira;
 import br.com.moacir.ortopedia.model.Cliente;
 import br.com.moacir.ortopedia.model.Pagamento;
-import br.com.moacir.ortopedia.model.VideoInformativo;
 import br.com.moacir.ortopedia.repository.ClienteRepository;
 import br.com.moacir.ortopedia.repository.PagamentoRepository;
-import br.com.moacir.ortopedia.repository.VideoInformativoRepository;
 import br.com.moacir.ortopedia.util.Paginas;
 import br.com.moacir.ortopedia.util.Util;
 import java.time.LocalDate;
@@ -29,15 +27,11 @@ import org.springframework.stereotype.Component;
 public class LandingController {
 
     @Autowired
-    private VideoInformativoRepository videoInformativoRepository;
-
-    @Autowired
     private ClienteRepository clienteRepository;
 
     @Autowired
     private PagamentoRepository pagamentoRepository;
 
-    private List<VideoInformativo> videoInformativos;
     private Cliente cliente;
     private Pagamento pagamento;
 
@@ -66,10 +60,6 @@ public class LandingController {
 
     public void encontraBandeira() {
         pagamento.setBandeira(Bandeira.getBandeiraByRegex(pagamento.getNumeroCartao()));
-    }
-
-    public List<VideoInformativo> getVideoInformativos() {
-        return videoInformativoRepository.findByStatus(true);
     }
 
     public Cliente getCliente() {

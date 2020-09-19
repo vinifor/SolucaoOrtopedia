@@ -5,12 +5,12 @@
  */
 package br.com.moacir.ortopedia.repository;
 
-import br.com.moacir.ortopedia.model.VideoInformativo;
+import br.com.moacir.ortopedia.model.Video;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface VideoInformativoRepository extends JpaRepository<VideoInformativo, Long> {
+public interface VideoRepository extends JpaRepository<Video, Long> {
 
-    List<VideoInformativo> findByStatus(Boolean status);
+    List<Video> findByTituloIgnoreCaseContains(String titulo);
 
 }

@@ -42,14 +42,8 @@
                             <a href="login.xhtml">Login</a>
                         </li>
                         <li>
-                            <a href="#video">Videos Informativos</a>
-                        </li>
-                        <li>
                             <a href="#pricing">Preços</a>
                         </li>
-                        <!--                        <li>
-                                                    <a href="#contact">Contato</a>
-                                                </li>-->
                     </ul>
                 </div>
             </div>
@@ -58,30 +52,6 @@
                 <div>
                     <h1>Solução em Ortopedia</h1>
                     <p>Divulgação dos modelos de aparelhos ortopédicos e orientações sobre o a utilização de nossos produtos, suas vantagens e seus aspectos técnicos</p>
-                </div>
-            </div>
-
-            <div id="video">
-                <div align="center" style="padding-bottom: 0px">
-                    <h2 style="font-size: 24px;font-weight: normal;margin: 0 0 12px 0;">Videos Informativos</h2>
-                </div>
-
-                <div style="padding-top: 0px">
-                    <div class="ui-g">
-                        <p:repeat value="#{landingController.videoInformativos}" var="video">
-
-                            <div class="ui-g-12 ui-md-6" align="center">
-                                <p:outputLabel value="#{video.titulo}" class="Fs18 FontBold"/>
-                                <div class="EmptyBox10"/>
-                                <video width="100%" controls="true">
-                                    <source src="#{request.contextPath}/javax.faces.resource/videos/informativo/#{video.nomeArquivo}.xhtml?ln=serenity-layout" 
-                                            type="#{video.tipo}"/>
-                                    Your browser does not support HTML video.
-                                </video>
-                                <p:outputLabel value="#{video.qualificacao}"/>
-                            </div>
-                        </p:repeat>
-                    </div>
                 </div>
             </div>
 
@@ -124,43 +94,6 @@
                 </div>
             </div>
 
-            <!--            <div id="contact">
-                            <div>
-                                <h2>Contact</h2>
-                                <p>Fill in the fields below and we’ll get back to you</p>
-            
-                                <div class="ui-g">
-                                    <div class="ui-g-12 ui-md-8 contact-map">
-                                        <p:graphicImage name="images/landing/map-contact.png" library="serenity-layout" />
-                                    </div>
-            
-                                    <div class="ui-g-12 ui-md-4 contact-form ui-fluid">
-                                        <div class="ui-g-12">
-                                            <span class="md-inputfield">
-                                                <p:inputText />
-                                                <label>Name</label>
-                                            </span>
-                                        </div>
-            
-                                        <div class="ui-g-12">
-                                            <span class="md-inputfield">
-                                                <p:inputText />
-                                                <label>Email</label>
-                                            </span>
-                                        </div>
-            
-                                        <div class="ui-g-12">
-                                            <span class="md-inputfield">
-                                                <p:inputText />
-                                                <label>Message</label>
-                                            </span>
-                                        </div>
-            
-                                        <p:button styleClass="indigo-btn" value="SEND"/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>-->
         </div>
         <p:dialog id="assinar" closeOnEscape="true" draggable="false" closable="true" minimizable="true"
                   modal="true" resizable="false" widgetVar="assinar" header="Cadastre-se" width="90%">

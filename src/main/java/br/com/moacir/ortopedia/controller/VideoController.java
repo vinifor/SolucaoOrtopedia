@@ -5,10 +5,8 @@
  */
 package br.com.moacir.ortopedia.controller;
 
-import br.com.moacir.ortopedia.model.Medico;
-import br.com.moacir.ortopedia.model.VideoAula;
-import br.com.moacir.ortopedia.repository.MedicoRepository;
-import br.com.moacir.ortopedia.repository.VideoAulaRepository;
+import br.com.moacir.ortopedia.model.Video;
+import br.com.moacir.ortopedia.repository.VideoRepository;
 import br.com.moacir.ortopedia.util.Paginas;
 import br.com.moacir.ortopedia.util.Util;
 import java.io.File;
@@ -25,14 +23,11 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Scope(value = "session")
-@Component(value = "videoAulaController")
-public class VideoAulaController {
+@Component(value = "videoController")
+public class VideoController {
 
     @Autowired
-    private VideoAulaRepository repository;
-
-    @Autowired
-    private MedicoRepository medicoRepository;
+    private VideoRepository repository;
 
     private final String diretorio = System.getProperty("user.dir")
             + File.separator + "src"
@@ -43,52 +38,48 @@ public class VideoAulaController {
             + File.separator + "videos"
             + File.separator + "aula";
 
-    private VideoAula videoAula;
-    private List<VideoAula> videoAulas;
+    private Video video;
+    private List<Video> videos;
 
     public void abrir() {
         carregar();
-        Util.redirect(Paginas.VIDEO_AULA_LISTA);
+        Util.redirect(Paginas.VIDEO_LISTA);
     }
 
     public void carregar() {
-        videoAulas = repository.findAll();
+        videos = repository.findAll();
     }
 
     public void novo() {
-        videoAula = VideoAula.builder()
+        video = Video.builder()
                 .build();
-        Util.redirect(Paginas.VIDEO_AULA_EDITA);
+        Util.redirect(Paginas.VIDEO_EDITA);
     }
 
-    public void edita(VideoAula videoAula) {
-        this.videoAula = videoAula;
-        Util.redirect(Paginas.VIDEO_AULA_EDITA);
+    public void edita(Video video) {
+        this.video = video;
+        Util.redirect(Paginas.VIDEO_EDITA);
     }
 
     public void salva() {
-        if (videoAula.getNomeArquivo() != null && !videoAula.getNomeArquivo().isEmpty()) {
-            repository.save(videoAula);
+        if (video.getNomeArquivo() != null && !video.getNomeArquivo().isEmpty()) {
+            repository.save(video);
             cancela();
         } else {
             Util.showErrorMessage("Faça upload do video antes de salvar", "");
         }
     }
 
-    public void deleta(VideoAula videoAula) {
-        repository.delete(videoAula);
+    public void deleta(Video video) {
+        repository.delete(video);
         new File(diretorio).delete();
         carregar();
     }
 
     public void cancela() {
-        videoAula = null;
+        video = null;
         carregar();
-        Util.redirect(Paginas.VIDEO_AULA_LISTA);
-    }
-
-    public List<Medico> medicos(String filter) {
-        return medicoRepository.findByNomeStartsWithIgnoreCase(filter);
+        Util.redirect(Paginas.VIDEO_LISTA);
     }
 
     public void upload(FileUploadEvent event) {
@@ -104,28 +95,28 @@ public class VideoAulaController {
                     os.write(buf, 0, len);
                 }
 
-                videoAula.setNomeArquivo(event.getFile().getFileName());
-                videoAula.setTipo(event.getFile().getContentType());
+                video.setNomeArquivo(event.getFile().getFileName());
+                video.setTipo(event.getFile().getContentType());
             }
         } catch (IOException ex) {
-            Logger.getLogger(VideoAulaController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VideoController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public VideoAula getVideoAula() {
-        return videoAula;
+    public Video getVideo() {
+        return video;
     }
 
-    public void setVideoAula(VideoAula videoAula) {
-        this.videoAula = videoAula;
+    public void setVideo(Video video) {
+        this.video = video;
     }
 
-    public List<VideoAula> getVideoAulas() {
-        return videoAulas;
+    public List<Video> getVideos() {
+        return videos;
     }
 
-    public void setVideoAulas(List<VideoAula> videoAulas) {
-        this.videoAulas = videoAulas;
+    public void setVideos(List<Video> videos) {
+        this.videos = videos;
     }
 
 }

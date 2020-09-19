@@ -9,18 +9,11 @@ public enum Paginas {
     HOME("/pages/index.xhtml"),
     LOGIN("/login.xhtml"),
     CLIENTE_EDITA("/pages/cliente/edita.xhtml"),
-    CLIENTE_LISTA("/pages/cliente/lista.xhtml"),
-    CLIENTE_PERFIL("/pages/cliente/perfil.xhtml"),
-    MEDICO_EDITA("/pages/medico/edita.xhtml"),
-    MEDICO_LISTA("/pages/medico/lista.xhtml"),
     PAGAMENTO_EDITA("/pages/pagamento/edita.xhtml"),
-    PAGAMENTO_LISTA("/pages/pagamento/lista.xhtml"),
     USUARIO_EDITA("/pages/usuario/edita.xhtml"),
     USUARIO_LISTA("/pages/usuario/lista.xhtml"),
-    VIDEO_AULA_EDITA("/pages/videoaula/edita.xhtml"),
-    VIDEO_AULA_LISTA("/pages/videoaula/lista.xhtml"),
-    VIDEO_INFORMATIVO_EDITA("/pages/videoinformativo/edita.xhtml"),
-    VIDEO_INFORMATIVO_LISTA("/pages/videoinformativo/lista.xhtml");
+    VIDEO_EDITA("/pages/video/edita.xhtml"),
+    VIDEO_LISTA("/pages/video/lista.xhtml");
 
     private final String caminho;
 

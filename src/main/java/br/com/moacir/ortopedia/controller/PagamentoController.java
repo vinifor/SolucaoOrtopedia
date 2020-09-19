@@ -35,16 +35,6 @@ public class PagamentoController {
     private Pagamento pagamento;
     private List<Pagamento> pagamentos;
 
-    public void abrir() {
-        carregar();
-        Util.redirect(Paginas.PAGAMENTO_LISTA);
-    }
-
-    public void carregar() {
-        pagamentos = repository.findAll();
-        System.out.println(pagamentos);
-    }
-
     public void novo() {
         Cliente cliente = clienteRepository.findByCpf(Util.getUserDetails().getUsername());
         if (repository.findByClienteAndDataPagamentoGreaterThanEqual(cliente, LocalDate.now().minusMonths(1)).isEmpty()) {
@@ -64,14 +54,8 @@ public class PagamentoController {
         cancela();
     }
 
-    public void deleta(Pagamento pagamento) {
-        repository.delete(pagamento);
-        carregar();
-    }
-
     public void cancela() {
         pagamento = null;
-        carregar();
         Util.redirect(Paginas.HOME);
     }
 

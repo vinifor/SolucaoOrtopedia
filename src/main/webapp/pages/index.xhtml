@@ -8,10 +8,12 @@
         template="/template/template.xhtml">
         <ui:define name="content">
             <h:form id="form">
+                <p:remoteCommand actionListener="#{homeController.encontraCliente()}"
+                                 autoRun="true"/>
                 <div class="ui-fluid ui-g">
                     <p:panel header="Encontre seu Video" style="width: 100%">
                         <div class="ui-g-12">
-                            <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
+                            <div class="ui-g-12 ui-lg-8 ui-md-8 ui-sm-12">
                                 <div class="md-inputfield md-inputfield-fill">
                                     <p:inputText id="titulo" value="#{homeController.titulo}"/>
                                     <p:outputLabel for="titulo" value="Título" />
@@ -19,34 +21,24 @@
                             </div>
 
                             <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
-                                <div class="md-inputfield md-inputfield-fill">
-                                    <p:autoComplete id="medico" value="#{homeController.medico}"
-                                                    completeMethod="#{homeController.medicos}" 
-                                                    converter="#{MedicoConverter}" dropdown="true" 
-                                                    forceSelection="true" var="medico" 
-                                                    itemLabel="#{medico.nome}" itemValue="#{medico}"/>
-                                    <p:outputLabel for="medico" value="Médico" />
-                                </div>
-                            </div>
-                            <div class="ui-g-12 ui-lg-4 ui-md-4 ui-sm-12">
                                 <p:commandButton value="Buscar" actionListener="#{homeController.buscaVideoAulas()}"
                                                  update="form" class="secondary-btn"/>
                             </div>
                         </div>
 
                         <div class="ui-g-12">
-                            <p:dataTable id="lista" var="videoAula" value="#{homeController.videoAulas}">
-                                <p:column headerText="Título" filterBy="#{videoAula.titulo}">
-                                    <h:outputText value="#{videoAula.titulo}" />
+                            <p:dataTable id="lista" var="video" value="#{homeController.videos}">
+                                <p:column headerText="Título" filterBy="#{video.titulo}">
+                                    <h:outputText value="#{video.titulo}" />
                                 </p:column>
-                                <p:column headerText="Médico" filterBy="#{videoAula.titulo}">
-                                    <h:outputText value="#{videoAula.medico.nome}" />
+                                <p:column headerText="Visualizado">
+                                    <h:outputText value="#{homeController.isVisualizado(video) ? 'Sim' : 'Não'}" />
                                 </p:column>
                                 <p:column headerText="Assistir" style="width: 5%">
                                     <div class="ui-g-12 ui-sm-12 ui-md-6 ui-lg-6">
                                         <p:commandButton icon="fa fa-play"
                                                          id="play" class="secondary-btn"
-                                                         actionListener="#{homeController.setVideoAula(videoAula)}"
+                                                         actionListener="#{homeController.selecionarVideo(video)}"
                                                          update="video_dialog" oncomplete="PF('video_dialog').show()"/>
                                         <p:tooltip for="play" value="Assistir"/>
                                     </div>
@@ -56,17 +48,17 @@
                     </p:panel>
                 </div>
             </h:form>
-            
+
             <p:dialog id="video_dialog" closeOnEscape="true" draggable="false" closable="true" minimizable="true"
                       modal="true" resizable="false" widgetVar="video_dialog">
-                <p:ajax event="close" update="video_dialog" listener="#{homeController.setVideoAula(null)}"/>
+                <p:ajax event="close" update="video_dialog" listener="#{homeController.setVideo(null)}"/>
                 <video width="800" controls="true">
-                    <source src="#{request.contextPath}/javax.faces.resource/videos/aula/#{homeController.videoAula.nomeArquivo}.xhtml?ln=serenity-layout" 
-                            type="#{homeController.videoAula.tipo}"/>
+                    <source src="#{request.contextPath}/javax.faces.resource/videos/aula/#{homeController.video.nomeArquivo}.xhtml?ln=serenity-layout" 
+                            type="#{homeController.video.tipo}"/>
                     Your browser does not support HTML video.
                 </video>
             </p:dialog>
-            
+
         </ui:define>
     </ui:composition>
 </html>

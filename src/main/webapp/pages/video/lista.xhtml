@@ -10,22 +10,22 @@
     <ui:define name="content">
         <h:form id="form">
             <div class="ui-fluid ui-g">
-                <p:panel header="Clientes" style="width: 100%">
-                    <p:dataTable id="lista" var="cliente" value="#{clienteController.clientes}">
+                <p:panel header="Video Aulas" style="width: 100%">
+                    <p:dataTable id="lista" var="video" value="#{videoController.videos}">
                         <p:column headerText="# Id" style="width: 10%">
-                            <h:outputText value="#{cliente.id}" />
+                            <h:outputText value="#{video.id}" />
                         </p:column>
-                        <p:column headerText="Nome" filterBy="#{cliente.nome}">
-                            <h:outputText value="#{cliente.nome}" />
+                        <p:column headerText="Título" filterBy="#{video.titulo}">
+                            <h:outputText value="#{video.titulo}" />
                         </p:column>
                         <p:column headerText="Ações" style="width: 10%">
                             <div class="ui-g-12 ui-sm-12 ui-md-6 ui-lg-6">
-                                <p:commandButton icon="fa fa-edit" actionListener="#{clienteController.edita(cliente)}"
+                                <p:commandButton icon="fa fa-edit" actionListener="#{videoController.edita(video)}"
                                                  id="editar"/>
                                 <p:tooltip for="editar" value="Editar"/>
                             </div>
                             <div class="ui-g-12 ui-sm-12 ui-md-6 ui-lg-6">
-                                <p:commandButton icon="fa fa-remove" actionListener="#{clienteController.deleta(cliente)}"
+                                <p:commandButton icon="fa fa-remove" actionListener="#{videoController.deleta(video)}"
                                                  class="secondary-btn" id="excluir" update="lista"/>
                                 <p:tooltip for="excluir" value="Excluir"/>
                             </div>
@@ -35,7 +35,7 @@
                 <div class="fixed-action-btn right">
                     <p:commandButton class="secondary-btn btn-large"
                                      icon="fa fa-plus" id="novo"
-                                     actionListener="#{clienteController.novo()}"/>
+                                     actionListener="#{videoController.novo()}"/>
                     <p:tooltip for="novo" value="Novo"/>
                     <div class="EmptyBox10"/>
                 </div>

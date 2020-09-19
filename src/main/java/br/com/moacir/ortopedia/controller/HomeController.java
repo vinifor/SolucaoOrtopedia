@@ -6,12 +6,12 @@
 package br.com.moacir.ortopedia.controller;
 
 import br.com.moacir.ortopedia.model.Cliente;
-import br.com.moacir.ortopedia.model.Medico;
-import br.com.moacir.ortopedia.model.VideoAula;
+import br.com.moacir.ortopedia.model.Video;
+import br.com.moacir.ortopedia.model.Visualizacao;
 import br.com.moacir.ortopedia.repository.ClienteRepository;
-import br.com.moacir.ortopedia.repository.MedicoRepository;
 import br.com.moacir.ortopedia.repository.PagamentoRepository;
-import br.com.moacir.ortopedia.repository.VideoAulaRepository;
+import br.com.moacir.ortopedia.repository.VideoRepository;
+import br.com.moacir.ortopedia.repository.VisualizacaoRepository;
 import br.com.moacir.ortopedia.util.Util;
 import java.time.LocalDate;
 import java.util.List;
@@ -28,24 +28,27 @@ import org.springframework.stereotype.Component;
 public class HomeController {
 
     @Autowired
-    private VideoAulaRepository repository;
+    private VideoRepository repository;
 
     @Autowired
     private ClienteRepository clienteRepository;
 
     @Autowired
-    private MedicoRepository medicoRepository;
-
-    @Autowired
     private PagamentoRepository pagamentoRepository;
 
-    private List<VideoAula> videoAulas;
-    private VideoAula videoAula;
-    private Medico medico;
+    @Autowired
+    private VisualizacaoRepository visualizacaoRepository;
+
+    private List<Video> videos;
+    private Cliente cliente;
+    private Video video;
     private String titulo;
 
+    public void encontraCliente() {
+        cliente = clienteRepository.findByCpf(Util.getUserDetails().getUsername());
+    }
+
     public void buscaVideoAulas() {
-        Cliente cliente = clienteRepository.findByCpf(Util.getUserDetails().getUsername());
         if (cliente != null) {
             if (!pagamentoRepository.findByClienteAndDataPagamentoGreaterThanEqual(cliente, LocalDate.now().minusMonths(1)).isEmpty()) {
                 buscar();
@@ -58,24 +61,22 @@ public class HomeController {
     }
 
     private void buscar() {
-        if (medico == null) {
-            videoAulas = repository.findByTituloIgnoreCaseContains(titulo);
-        } else {
-            videoAulas = repository.findByMedicoAndTituloIgnoreCaseContains(medico, titulo);
-            medico = null;
+        videos = repository.findByTituloIgnoreCaseContains(titulo);
+    }
+
+    public void selecionarVideo(Video video) {
+        setVideo(video);
+        if (visualizacaoRepository.findByClienteAndVideo(cliente, video).isEmpty()) {
+            visualizacaoRepository.save(Visualizacao.builder()
+                    .cliente(cliente)
+                    .video(video)
+                    .visualizado(true)
+                    .build());
         }
     }
 
-    public List<Medico> medicos(String filter) {
-        return medicoRepository.findByNomeStartsWithIgnoreCase(filter);
-    }
-
-    public Medico getMedico() {
-        return medico;
-    }
-
-    public void setMedico(Medico medico) {
-        this.medico = medico;
+    public boolean isVisualizado(Video video) {
+        return !visualizacaoRepository.findByClienteAndVideo(cliente, video).isEmpty();
     }
 
     public String getTitulo() {
@@ -86,20 +87,20 @@ public class HomeController {
         this.titulo = titulo;
     }
 
-    public List<VideoAula> getVideoAulas() {
-        return videoAulas;
+    public List<Video> getVideos() {
+        return videos;
     }
 
-    public void setVideoAulas(List<VideoAula> videoAulas) {
-        this.videoAulas = videoAulas;
+    public void setVideos(List<Video> videos) {
+        this.videos = videos;
     }
 
-    public VideoAula getVideoAula() {
-        return videoAula;
+    public Video getVideo() {
+        return video;
     }
 
-    public void setVideoAula(VideoAula videoAula) {
-        this.videoAula = videoAula;
+    public void setVideo(Video video) {
+        this.video = video;
     }
 
 }
